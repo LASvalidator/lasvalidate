@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
   U32 num_fail = 0;
   U32 num_warning = 0;
 
-  fprintf(stderr, "This is only an example prototype for the ASPRS LAS validation software.\n");
+  fprintf(stderr, "This is a prototype for the LAS validator.\n");
   fprintf(stderr, "Please contact me at martin@rapidlasso.com before using it commercially.\n");
 
   LASreadOpener lasreadopener;
