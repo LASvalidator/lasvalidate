@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LASvalidator>
+  <report>
+    <file>
+      <name>test.las</name>
+      <path>..\..\LASvalidator\lasvalidate\data\test.las</path>
+      <version_major>1</version_major>
+      <version_minor>0</version_minor>
+      <point_data_format>0</point_data_format>
+      <CRS>not implemented (yet)</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <warning>
+        <variable>system identifier</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
+      <fail>
+        <variable>file creation year</variable>
+        <note>should be between 1990 and 2013 and not 1</note>
+      </fail>
+    </details>
+  </report>
+  <total>
+    fail
+    <details>
+      <pass>0</pass>
+      <warning>0</warning>
+      <fail>1</fail>
+    </details>
+  </total>
+</LASvalidator>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LASvalidator>
+  <report>
+    <file>
+      <name>lake.las</name>
+      <path>..\..\LASvalidator\lasvalidate\data\lake.las</path>
+      <version_major>1</version_major>
+      <version_minor>2</version_minor>
+      <point_data_format>1</point_data_format>
+      <CRS>not implemented (yet)</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <fail>
+        <variable>CRS</variable>
+        <note>file does not specify a Coordinate Reference System</note>
+      </fail>
+    </details>
+  </report>
+  <total>
+    fail
+    <details>
+      <pass>0</pass>
+      <warning>0</warning>
+      <fail>1</fail>
+    </details>
+  </total>
+</LASvalidator>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LASvalidator>
+  <report>
+    <file>
+      <name>fusa.las</name>
+      <path>..\..\LASvalidator\lasvalidate\data\fusa.las</path>
+      <version_major>1</version_major>
+      <version_minor>1</version_minor>
+      <point_data_format>1</point_data_format>
+      <CRS>not implemented (yet)</CRS>
+    </file>
+    <summary>
+      pass
+    </summary>
+  </report>
+  <report>
+    <file>
+      <name>lake.las</name>
+      <path>..\..\LASvalidator\lasvalidate\data\lake.las</path>
+      <version_major>1</version_major>
+      <version_minor>2</version_minor>
+      <point_data_format>1</point_data_format>
+      <CRS>not implemented (yet)</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <fail>
+        <variable>CRS</variable>
+        <note>file does not specify a Coordinate Reference System</note>
+      </fail>
+    </details>
+  </report>
+  <report>
+    <file>
+      <name>test.las</name>
+      <path>..\..\LASvalidator\lasvalidate\data\test.las</path>
+      <version_major>1</version_major>
+      <version_minor>0</version_minor>
+      <point_data_format>0</point_data_format>
+      <CRS>not implemented (yet)</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <warning>
+        <variable>system identifier</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
+      <fail>
+        <variable>file creation year</variable>
+        <note>should be between 1990 and 2013 and not 1</note>
+      </fail>
+    </details>
+  </report>
+  <report>
+    <file>
+      <name>TO_core_last_zoom.las</name>
+      <path>..\..\LASvalidator\lasvalidate\data\TO_core_last_zoom.las</path>
+      <version_major>1</version_major>
+      <version_minor>0</version_minor>
+      <point_data_format>1</point_data_format>
+      <CRS>not implemented (yet)</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <warning>
+        <variable>system identifier</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
+      <fail>
+        <variable>file creation day</variable>
+        <note>not set</note>
+      </fail>
+      <fail>
+        <variable>file creation year</variable>
+        <note>not set</note>
+      </fail>
+      <fail>
+        <variable>CRS</variable>
+        <note>file does not specify a Coordinate Reference System</note>
+      </fail>
+    </details>
+  </report>
+  <total>
+    fail
+    <details>
+      <pass>1</pass>
+      <warning>0</warning>
+      <fail>3</fail>
+    </details>
+  </total>
+</LASvalidator>
