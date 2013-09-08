@@ -75,14 +75,11 @@ static double taketime()
 
 #define LAS_VALIDATE_SUCCESS                    0  // Program successfully executed all phases
 #define LAS_VALIDATE_UNKNOWN_ERROR             -1  // Program failed for an undeterminable reason
-#define LAS_VALIDATE_INPUT_FILE_NOT_FOUND      -2  // The input file specified on the command line was not found
-#define LAS_VALIDATE_INPUT_DIRECTORY_NOT_FOUND -3  // The input directory specified on the command line was not found
-#define LAS_VALIDATE_INPUT_READ_ACCESS_ERROR   -4  // The LVE does not have read permission to the specified file or path
-#define LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX -5  // The command line does not conform to the syntax the LVE is expecting
-#define LAS_VALIDATE_NO_INPUT_SPECIFIED        -6  // 
-#define LAS_VALIDATE_NO_INPUT_IN_DIRECTORY     -7  // 
-#define LAS_VALIDATE_WRITE_PERMISSION_ERROR   -10  // The LVE does not have write permission to the specified output directory
-#define LAS_VALIDATE_XML_FILE_SYNTAX_ERROR    -11  // The xml file specifying the input LAS files is not in the correct format
+#define LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX -2  // The command line does not conform to the syntax the LAS validator is expecting
+#define LAS_VALIDATE_NO_INPUT_SPECIFIED        -3  // The command line does not specify any LAS or LAZ files as input 
+#define LAS_VALIDATE_INPUT_FILE_NOT_FOUND      -4  // The input file specified on the command line was not found
+#define LAS_VALIDATE_INPUT_READ_ACCESS_ERROR   -5  // The LAS validator does not have read permission to a specified file or path
+#define LAS_VALIDATE_WRITE_PERMISSION_ERROR    -6  // The LAS validator does not have write permission to the specified output directory
 
 int main(int argc, char *argv[])
 {
@@ -92,14 +89,14 @@ int main(int argc, char *argv[])
   F64 start_time = 0.0;
   F64 full_start_time = 0.0;
   const CHAR* xml_output_file = 0;
-  const CHAR* xml_output_dir = 0;
   BOOL one_report_per_file = FALSE;
   U32 num_pass = 0;
   U32 num_fail = 0;
   U32 num_warning = 0;
 
-  fprintf(stderr, "This is a prototype for the LAS validator.\n");
-  fprintf(stderr, "Please contact me at martin@rapidlasso.com before using it commercially.\n");
+  fprintf(stderr, "This is version %d of the LAS validator. Please contact\n", LASREAD_BUILD_DATE);
+  fprintf(stderr, "me at 'martin.isenburg@rapidlasso.com' if you disagree with\n");
+  fprintf(stderr, "a validation report, want additional checks, or find a bug.\n");
 
   LASreadOpener lasreadopener;
 
@@ -146,15 +143,10 @@ int main(int argc, char *argv[])
       verbose = TRUE;
       very_verbose = TRUE;
     }
-    else if (strcmp(argv[i],"-o") == 0 || strcmp(argv[i],"-os") == 0)
+    else if (strcmp(argv[i],"-o") == 0)
     {
       i++;
       xml_output_file = argv[i];
-    }
-    else if (strcmp(argv[i],"-om") == 0)
-    {
-      i++;
-      xml_output_dir = argv[i];
     }
     else if (strcmp(argv[i],"-oxml") == 0)
     {
@@ -239,9 +231,11 @@ int main(int argc, char *argv[])
       lasinventory.add(&lasreader->point);
     }
 
-    // check correctness (without output)
+    // check correctness (without output, but with CRS description)
 
-    U32 pass = lascheck.check(&lasreader->header, &lasinventory);
+    CHAR description[512];
+    strcpy(description, "not valid or not specified");
+    U32 pass = lascheck.check(&lasreader->header, &lasinventory, description);
 
     // maybe we are doing one report per file
 
@@ -278,7 +272,7 @@ int main(int argc, char *argv[])
     xmlwriter.write("version_major", lasreader->header.version_major);
     xmlwriter.write("version_minor", lasreader->header.version_minor);
     xmlwriter.write("point_data_format", lasreader->header.point_data_format);
-    xmlwriter.write("CRS", "not implemented (yet)");
+    xmlwriter.write("CRS", description);
     xmlwriter.endsub("file");
 
     // report the verdict
@@ -292,7 +286,7 @@ int main(int argc, char *argv[])
     if (pass != LAS_PASS)
     {
       xmlwriter.beginsub("details");
-      pass = lascheck.check(&lasreader->header, &lasinventory, &xmlwriter);
+      pass = lascheck.check(&lasreader->header, &lasinventory, 0, &xmlwriter);
       xmlwriter.endsub("details");
       total_pass |= pass;
       if (pass & LAS_FAIL)
