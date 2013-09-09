@@ -39,6 +39,10 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
+#define VALIDATE_PASS     0x0000
+#define VALIDATE_FAIL     0x0001
+#define VALIDATE_WARNING  0x0002
+
 static void byebye(int return_code, BOOL wait=FALSE)
 {
   if (wait)
@@ -198,7 +202,7 @@ int main(int argc, char *argv[])
 
   // accumulated pass
 
-  U32 total_pass = XML_PASS;
+  U32 total_pass = VALIDATE_PASS;
 
   // possibly loop over multiple input files
 
@@ -216,6 +220,9 @@ int main(int argc, char *argv[])
       fprintf(stderr, "ERROR: could not open lasreader\n");
       byebye(LAS_VALIDATE_INPUT_FILE_NOT_FOUND, argc == 1);
     }
+
+    // get a pointer to the header
+    LASheader* lasheader = &lasreader->header;
 
     // maybe we are doing one report per file
 
@@ -249,57 +256,57 @@ int main(int argc, char *argv[])
     xmlwriter.beginsub("file");
     xmlwriter.write("name", lasreadopener.get_file_name());
     xmlwriter.write("path", lasreadopener.get_path());
-    xmlwriter.write("version_major", lasreader->header.version_major);
-    xmlwriter.write("version_minor", lasreader->header.version_minor);
-    xmlwriter.write("point_data_format", lasreader->header.point_data_format);
-
-    U32 pass = (lasreader->header.warnings ? XML_WARNING : XML_PASS);
+    xmlwriter.write("version_major", lasheader->version_major);
+    xmlwriter.write("version_minor", lasheader->version_minor);
+    xmlwriter.write("point_data_format", lasheader->point_data_format);
 
     CHAR crsdescription[512];
     strcpy(crsdescription, "not valid or not specified");
 
-    if (lasreader->header.fails)
+    if (lasheader->fails == 0)
     {
-      // error when header was loaded. we skip all further checks.
+      // header was loaded. now parse and check.
 
-      pass = pass | XML_FAIL;
-    }
-    else
-    {
-      // create LAScheck 
-
-      LAScheck lascheck(&lasreader->header);
-
-      // header was loaded. parse the points.
+      LAScheck lascheck(lasheader);
 
       while (lasreader->read_point())
       {
         lascheck.parse(&lasreader->point);
       }
 
-      // check header and points
+      // check header and points and get CRS description
 
-      pass = pass | lascheck.check(&lasreader->header, crsdescription);
+      lascheck.check(lasheader, crsdescription);
     }
-    
+
     xmlwriter.write("CRS", crsdescription);
-    xmlwriter.endsub("file");
+    xmlwriter.endsub("file");    
 
     // report the verdict
 
+    U32 pass = (lasheader->fails ? VALIDATE_FAIL : VALIDATE_PASS);
+    if (lasheader->warnings) pass |= VALIDATE_WARNING;
+
     xmlwriter.beginsub("summary");
-    xmlwriter.write((pass == XML_PASS ? "pass" : ((pass & XML_FAIL) ? "fail" : "warning")));
+    xmlwriter.write((pass == VALIDATE_PASS ? "pass" : ((pass & VALIDATE_FAIL) ? "fail" : "warning")));
     xmlwriter.endsub("summary");
 
     // report details (if necessary)
 
-    if (pass != XML_PASS)
+    if (pass != VALIDATE_PASS)
     {
       xmlwriter.beginsub("details");
-      pass = lascheck.check(&lasreader->header, &lasinventory, 0, &xmlwriter);
+      for (i = 0; i < lasheader->fail_num; i+=2)
+      {
+        xmlwriter.write(lasheader->fails[i], "fail", lasheader->fails[i+1]);
+      }
+      for (i = 0; i < lasheader->warning_num; i+=2)
+      {
+        xmlwriter.write(lasheader->warnings[i], "warning", lasheader->warnings[i+1]);
+      }
       xmlwriter.endsub("details");
       total_pass |= pass;
-      if (pass & XML_FAIL)
+      if (pass & VALIDATE_FAIL)
       {
         num_fail++;
       }
@@ -324,7 +331,7 @@ int main(int argc, char *argv[])
       // report the total verdict
 
       xmlwriter.begin("total");
-      xmlwriter.write((total_pass == XML_PASS ? "pass" : ((total_pass & XML_FAIL) ? "fail" : "warning")));
+      xmlwriter.write((total_pass == VALIDATE_PASS ? "pass" : ((total_pass & VALIDATE_FAIL) ? "fail" : "warning")));
       xmlwriter.beginsub("details");
       xmlwriter.write("pass", num_pass);
       xmlwriter.write("warning", num_warning);

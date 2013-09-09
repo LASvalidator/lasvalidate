@@ -97,6 +97,10 @@ PostBuild_Cmds=copy Debug\lasvalidate.exe ..\bin\lasvalidate.exe
 
 SOURCE=.\lasvalidate.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=..\..\LAScheck\src\xmlwriter.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
