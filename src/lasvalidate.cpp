@@ -36,7 +36,6 @@
 #include <string.h>
 
 #include "lasreadopener.hpp"
-#include "lasutility.hpp"
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
@@ -96,7 +95,7 @@ int main(int argc, char *argv[])
 
   fprintf(stderr, "This is version %d of the LAS validator. Please contact\n", LASREAD_BUILD_DATE);
   fprintf(stderr, "me at 'martin.isenburg@rapidlasso.com' if you disagree with\n");
-  fprintf(stderr, "a validation report, want additional checks, or find a bug.\n");
+  fprintf(stderr, "validation reports, want additional checks, or find bugs.\n");
 
   LASreadOpener lasreadopener;
 
@@ -127,7 +126,7 @@ int main(int argc, char *argv[])
     }
     else if (strcmp(argv[i],"-version") == 0)
     {
-      fprintf(stderr, "\nlasvalidate built %d with LASread (v %d.%d) and LAScheck (v %d.%d) by rapidlasso\n", LASREAD_BUILD_DATE, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR);
+      fprintf(stderr, "\nlasvalidate %d with LASread (v %d.%d) and LAScheck (v %d.%d) by rapidlasso GmbH\n", LASREAD_BUILD_DATE, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR);
       byebye(LAS_VALIDATE_SUCCESS);
     }
     else if (strcmp(argv[i],"-h") == 0 || strcmp(argv[i],"-help") == 0)
@@ -197,13 +196,9 @@ int main(int argc, char *argv[])
     }
   }
 
-  // create LAScheck 
-
-  LAScheck lascheck;
-
   // accumulated pass
 
-  U32 total_pass = LAS_PASS;
+  U32 total_pass = XML_PASS;
 
   // possibly loop over multiple input files
 
@@ -220,22 +215,7 @@ int main(int argc, char *argv[])
     {
       fprintf(stderr, "ERROR: could not open lasreader\n");
       byebye(LAS_VALIDATE_INPUT_FILE_NOT_FOUND, argc == 1);
-    }    
-
-    // parse points
-
-    LASinventory lasinventory;
-
-    while (lasreader->read_point())
-    {
-      lasinventory.add(&lasreader->point);
     }
-
-    // check correctness (without output, but with CRS description)
-
-    CHAR description[512];
-    strcpy(description, "not valid or not specified");
-    U32 pass = lascheck.check(&lasreader->header, &lasinventory, description);
 
     // maybe we are doing one report per file
 
@@ -272,24 +252,54 @@ int main(int argc, char *argv[])
     xmlwriter.write("version_major", lasreader->header.version_major);
     xmlwriter.write("version_minor", lasreader->header.version_minor);
     xmlwriter.write("point_data_format", lasreader->header.point_data_format);
-    xmlwriter.write("CRS", description);
+
+    U32 pass = (lasreader->header.warnings ? XML_WARNING : XML_PASS);
+
+    CHAR crsdescription[512];
+    strcpy(crsdescription, "not valid or not specified");
+
+    if (lasreader->header.fails)
+    {
+      // error when header was loaded. we skip all further checks.
+
+      pass = pass | XML_FAIL;
+    }
+    else
+    {
+      // create LAScheck 
+
+      LAScheck lascheck(&lasreader->header);
+
+      // header was loaded. parse the points.
+
+      while (lasreader->read_point())
+      {
+        lascheck.parse(&lasreader->point);
+      }
+
+      // check header and points
+
+      pass = pass | lascheck.check(&lasreader->header, crsdescription);
+    }
+    
+    xmlwriter.write("CRS", crsdescription);
     xmlwriter.endsub("file");
 
     // report the verdict
 
     xmlwriter.beginsub("summary");
-    xmlwriter.write((pass == LAS_PASS ? "pass" : ((pass & LAS_FAIL) ? "fail" : "warning")));
+    xmlwriter.write((pass == XML_PASS ? "pass" : ((pass & XML_FAIL) ? "fail" : "warning")));
     xmlwriter.endsub("summary");
 
     // report details (if necessary)
 
-    if (pass != LAS_PASS)
+    if (pass != XML_PASS)
     {
       xmlwriter.beginsub("details");
       pass = lascheck.check(&lasreader->header, &lasinventory, 0, &xmlwriter);
       xmlwriter.endsub("details");
       total_pass |= pass;
-      if (pass & LAS_FAIL)
+      if (pass & XML_FAIL)
       {
         num_fail++;
       }
@@ -314,7 +324,7 @@ int main(int argc, char *argv[])
       // report the total verdict
 
       xmlwriter.begin("total");
-      xmlwriter.write((total_pass == LAS_PASS ? "pass" : ((total_pass & LAS_FAIL) ? "fail" : "warning")));
+      xmlwriter.write((total_pass == XML_PASS ? "pass" : ((total_pass & XML_FAIL) ? "fail" : "warning")));
       xmlwriter.beginsub("details");
       xmlwriter.write("pass", num_pass);
       xmlwriter.write("warning", num_warning);
