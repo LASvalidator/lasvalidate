@@ -11,20 +11,20 @@ LINKER  = g++
 #LIBS     = -L/usr/lib32
 #INCLUDE  = -I/usr/include
 
-LASLIBS     = -L../laslibrary/lib
-LASINCLUDE  = -I../laslibrary/inc
+LASLIBS     = -L../../LASread/lib
+LASINCLUDE  = -I../../LASread/inc
 
 all: lasvalidate
 
-lasvalidate: lasvalidate.o xmlwriter.o
-	${LINKER} ${BITS} ${COPTS} lasvalidate.o xmlwriter.o -llaslibrary -o $@ ${LIBS} ${LASLIBS} $(INCLUDE) $(LASINCLUDE)
+lasvalidate: lasvalidate.o lascheck.o crscheck.o xmlwriter.o
+	${LINKER} ${BITS} ${COPTS} lasvalidate.o lascheck.o crscheck.o xmlwriter.o -llasread -o $@ ${LIBS} ${LASLIBS} ${INCLUDE} ${LASINCLUDE}
 	cp $@ ../bin
 
 .cpp.o: 
-	${COMPILER} ${BITS} -c ${COPTS} ${INCLUDE} $(LASINCLUDE) $< -o $@
+	${COMPILER} ${BITS} -c ${COPTS} ${INCLUDE} ${LASINCLUDE} $< -o $@	
 
 .c.o: 
-	${COMPILER} ${BITS} -c ${COPTS} ${INCLUDE} $(LASINCLUDE) $< -o $@
+	${COMPILER} ${BITS} -c ${COPTS} ${INCLUDE} ${LASINCLUDE} $< -o $@
 
 clean:
 	rm -rf *.o
