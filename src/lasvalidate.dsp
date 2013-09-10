@@ -99,7 +99,7 @@ SOURCE=.\lasvalidate.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\LAScheck\src\xmlwriter.cpp
+SOURCE=.\xmlwriter.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -119,15 +119,7 @@ SOURCE=..\..\lasread\inc\lasheader.hpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\laslibrary\inc\lasheader.hpp
-# End Source File
-# Begin Source File
-
 SOURCE=..\..\lasread\inc\laspoint.hpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\laslibrary\inc\laspoint.hpp
 # End Source File
 # Begin Source File
 
@@ -135,15 +127,7 @@ SOURCE=..\..\LASread\inc\lasreader.hpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\laslibrary\inc\lasreader.hpp
-# End Source File
-# Begin Source File
-
 SOURCE=..\..\LASread\inc\lasreadopener.hpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\laslibrary\inc\lasreadopener.hpp
 # End Source File
 # Begin Source File
 
@@ -151,27 +135,11 @@ SOURCE=..\..\lasread\inc\lasutility.hpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\laslibrary\inc\lasutility.hpp
-# End Source File
-# Begin Source File
-
 SOURCE=..\..\lasread\inc\laszip.hpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\laslibrary\inc\laszip.hpp
-# End Source File
-# Begin Source File
-
 SOURCE=..\..\lasread\inc\mydefs.hpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\laslibrary\inc\mydefs.hpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\LAScheck\inc\xmlwriter.hpp
 # End Source File
 # Begin Source File
 

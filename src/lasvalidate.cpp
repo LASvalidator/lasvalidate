@@ -56,17 +56,18 @@ static void byebye(int return_code, BOOL wait=FALSE)
 static void usage(int return_code, BOOL wait=FALSE)
 {
   fprintf(stderr,"Usage:\n");
-  fprintf(stderr,"lasvalidate -v -i lidar.las\n");
-  fprintf(stderr,"lasvalidate -i lidar.las -o validation.xml\n");
-  fprintf(stderr,"lasvalidate -i lidar.las -oxml\n");
+  fprintf(stderr,"lasvalidate -i lidar.las\n");
+  fprintf(stderr,"lasvalidate -i lidar.laz\n");
+  fprintf(stderr,"lasvalidate -v -i lidar.las -o report.xml\n");
+  fprintf(stderr,"lasvalidate -v -i lidar.laz -oxml\n");
   fprintf(stderr,"lasvalidate -vv -i tile1.las tile2.las tile3.las -oxml\n");
-  fprintf(stderr,"lasvalidate -i tile1.las tile2.las tile3.las -o summary.kml\n");
+  fprintf(stderr,"lasvalidate -i tile1.laz tile2.laz tile3.laz -o summary.kml\n");
   fprintf(stderr,"lasvalidate -vv -i *.las\n");
-  fprintf(stderr,"lasvalidate -i *.las -o summary.xml\n");
+  fprintf(stderr,"lasvalidate -i *.laz -o summary.xml\n");
   fprintf(stderr,"lasvalidate -i *.las -oxml\n");
   fprintf(stderr,"lasvalidate -i c:\\data\\lidar.las -oxml\n");
   fprintf(stderr,"lasvalidate -i ..\\subfolder\\*.las -o summary.xml\n");
-  fprintf(stderr,"lasvalidate -v -i ..\\..\\flight\\*.las -o oxml\n");
+  fprintf(stderr,"lasvalidate -v -i ..\\..\\flight\\*.laz -o oxml\n");
   fprintf(stderr,"lasvalidate -h\n");
   byebye(return_code, wait);
 }
@@ -99,7 +100,7 @@ int main(int argc, char *argv[])
 
   fprintf(stderr, "This is version %d of the LAS validator. Please contact\n", LASREAD_BUILD_DATE);
   fprintf(stderr, "me at 'martin.isenburg@rapidlasso.com' if you disagree with\n");
-  fprintf(stderr, "validation reports, want additional checks, or find bugs.\n");
+  fprintf(stderr, "validation reports, want additional checks, or find bugs.\n\n");
 
   LASreadOpener lasreadopener;
 
