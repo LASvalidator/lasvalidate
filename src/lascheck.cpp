@@ -352,9 +352,9 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
     if (lasheader->file_creation_year == today_year)
     {
-      // for the current year we need to limit the range
+      // for the current year we need to limit the range (plus 1 because in GPS time January 1 is day 1)
 
-      max_day_of_year = tm_date->tm_yday;
+      max_day_of_year = tm_date->tm_yday + 1;
     }
     else if ((((lasheader->file_creation_year)%4) == 0))
     {
@@ -365,7 +365,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
     if (lasheader->file_creation_day > max_day_of_year)
     {
-      sprintf(note, "should be between 0 and %d and not %d", max_day_of_year, lasheader->file_creation_day);
+      sprintf(note, "should be between 1 and %d and not %d", max_day_of_year, lasheader->file_creation_day);
       lasheader->add_fail("file creation day", note);
     }
   }
