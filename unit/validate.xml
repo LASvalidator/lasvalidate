@@ -3,11 +3,12 @@
   <report>
     <file>
       <name>las12.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       warning
@@ -26,11 +27,12 @@
   <report>
     <file>
       <name>las12_bounding_box.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12_bounding_box.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12_bounding_box.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       fail
@@ -73,11 +75,12 @@
   <report>
     <file>
       <name>las12_creation_date.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12_creation_date.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12_creation_date.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       fail
@@ -104,11 +107,12 @@
   <report>
     <file>
       <name>las12_global_encoding.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12_global_encoding.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12_global_encoding.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       fail
@@ -116,7 +120,7 @@
     <details>
       <fail>
         <variable>global encoding</variable>
-        <note>should be 31 or smaller but is 63</note>
+        <note>should not be greater than 1 for LAS version 1.2 but is 63</note>
       </fail>
       <fail>
         <variable>global encoding</variable>
@@ -158,12 +162,33 @@
   </report>
   <report>
     <file>
+      <name>las12_header_size.las</name>
+      <path>..\unit\las12_header_size.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130902)</generating_software>
+      <point_data_format>0</point_data_format>
+      <CRS>not valid or not specified</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <fail>
+        <variable>header size</variable>
+        <note>the header_size of any LAS file is at least 227 but here it is only 226</note>
+      </fail>
+    </details>
+  </report>
+  <report>
+    <file>
       <name>las12_number_of_points_by_return.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12_number_of_points_by_return.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12_number_of_points_by_return.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       fail
@@ -198,11 +223,12 @@
   <report>
     <file>
       <name>las12_number_of_point_records.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12_number_of_point_records.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12_number_of_point_records.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       fail
@@ -224,12 +250,52 @@
   </report>
   <report>
     <file>
+      <name>las12_offset_to_point_data.las</name>
+      <path>..\unit\las12_offset_to_point_data.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130902)</generating_software>
+      <point_data_format>0</point_data_format>
+      <CRS>not valid or not specified</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <fail>
+        <variable>offset to point data</variable>
+        <note>the offset_to_point_data 225 must be equal or larger than the header_size 227</note>
+      </fail>
+    </details>
+  </report>
+  <report>
+    <file>
+      <name>las12_point_data_format.las</name>
+      <path>..\unit\las12_point_data_format.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130902)</generating_software>
+      <point_data_format>14</point_data_format>
+      <CRS>not valid or not specified</CRS>
+    </file>
+    <summary>
+      fail
+    </summary>
+    <details>
+      <fail>
+        <variable>point type or size</variable>
+      </fail>
+    </details>
+  </report>
+  <report>
+    <file>
       <name>las12_scale_factor.las</name>
-      <path>C:\LASvalidator\lasvalidate\unit\las12_scale_factor.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\unit\las12_scale_factor.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 130506)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 55 southern hemisphere</CRS>
     </file>
     <summary>
       warning
@@ -262,7 +328,7 @@
     <details>
       <pass>0</pass>
       <warning>2</warning>
-      <fail>5</fail>
+      <fail>8</fail>
     </details>
   </total>
 </LASvalidator>
