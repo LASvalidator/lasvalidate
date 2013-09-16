@@ -257,8 +257,15 @@ int main(int argc, char *argv[])
     xmlwriter.beginsub("file");
     xmlwriter.write("name", lasreadopener.get_file_name());
     xmlwriter.write("path", lasreadopener.get_path());
-    xmlwriter.write("version_major", lasheader->version_major);
-    xmlwriter.write("version_minor", lasheader->version_minor);
+    CHAR temp[32];
+    sprintf(temp, "%d.%d", lasheader->version_major, lasheader->version_minor);
+    xmlwriter.write("version", temp);
+    strncpy(temp, lasheader->system_identifier, 32);
+    temp[31] = '\0';
+    xmlwriter.write("system_identifier", temp);
+    strncpy(temp, lasheader->generating_software, 32);
+    temp[31] = '\0';
+    xmlwriter.write("generating_software", temp);
     xmlwriter.write("point_data_format", lasheader->point_data_format);
 
     CHAR crsdescription[512];

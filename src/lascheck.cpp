@@ -127,17 +127,44 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
   // check global encoding
 
-  if (lasheader->global_encoding > 31)
+  if ((lasheader->version_major == 1) && (lasheader->version_minor <= 1))
   {
-    sprintf(note, "should be 31 or smaller but is %d", lasheader->global_encoding);
-    lasheader->add_fail("global encoding", note);
+    if (lasheader->global_encoding > 0)
+    {
+      sprintf(note, "should 0 for LAS version %d.%d but is %d", (I32)lasheader->version_major, (I32)lasheader->version_minor, (I32)lasheader->global_encoding);
+      lasheader->add_fail("global encoding", note);
+    }
+  }
+  else if ((lasheader->version_major == 1) && (lasheader->version_minor <= 2))
+  {
+    if (lasheader->global_encoding > 1)
+    {
+      sprintf(note, "should not be greater than 1 for LAS version %d.%d but is %d", (I32)lasheader->version_major, (I32)lasheader->version_minor, (I32)lasheader->global_encoding);
+      lasheader->add_fail("global encoding", note);
+    }
+  }
+  else if ((lasheader->version_major == 1) && (lasheader->version_minor <= 3))
+  {
+    if (lasheader->global_encoding > 15)
+    {
+      sprintf(note, "should not be greater than 1 for LAS version %d.%d but is %d", (I32)lasheader->version_major, (I32)lasheader->version_minor, (I32)lasheader->global_encoding);
+      lasheader->add_fail("global encoding", note);
+    }
+  }
+  else if ((lasheader->version_major == 1) && (lasheader->version_minor <= 4))
+  {
+    if (lasheader->global_encoding > 31)
+    {
+      sprintf(note, "should not be greater than 1 for LAS version %d.%d but is %d", (I32)lasheader->version_major, (I32)lasheader->version_minor, (I32)lasheader->global_encoding);
+      lasheader->add_fail("global encoding", note);
+    }
   }
 
   if (lasheader->global_encoding & 16)
   {
     if ((lasheader->version_major == 1) && (lasheader->version_minor <= 3))
     {
-      sprintf(note, "set bit 4 not defined for LAS version %d.%d", lasheader->version_major, lasheader->version_minor);
+      sprintf(note, "set bit 4 not defined for LAS version %d.%d", (I32)lasheader->version_major, (I32)lasheader->version_minor);
       lasheader->add_fail("global encoding", note);
     }
   }
@@ -205,7 +232,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
   if (lasheader->global_encoding & 1)
   {
-    if ((lasheader->version_major == 1) && (lasheader->version_minor <= 0))
+    if ((lasheader->version_major == 1) && (lasheader->version_minor <= 1))
     {
       sprintf(note, "set bit 0 not defined for LAS version %d.%d", lasheader->version_major, lasheader->version_minor);
       lasheader->add_fail("global encoding", note);
@@ -225,7 +252,10 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
       {
         if ((lasinventory.min_gps_time < 0.0) || (lasinventory.max_gps_time > 604800.0)) 
         {
-          sprintf(note, "unset bit 0 suggests GPS week time but GPS time ranges from %g to %g", lasinventory.min_gps_time, lasinventory.max_gps_time);
+          CHAR string1[512], string2[512];
+          lidardouble2string(string1, lasinventory.min_gps_time, 0.000001);
+          lidardouble2string(string2, lasinventory.max_gps_time, 0.000001);
+          sprintf(note, "unset bit 0 suggests GPS week time but GPS time ranges from %s to %s", string1, string2);
           lasheader->add_fail("global encoding", note);
         }
       }
@@ -292,12 +322,12 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
   if (i == 32)
   {
     sprintf(note, "string should be terminated by a '\\0' character");
-    lasheader->add_fail("system identifier", note);
+    lasheader->add_fail("generating software", note);
   }
   else if (i == 0)
   {
     sprintf(note, "empty string. first character is '\\0'");
-    lasheader->add_warning("system identifier", note);
+    lasheader->add_warning("generating software", note);
   }
   for (j = i; j < 32; j++)
   {
@@ -309,7 +339,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
   if (j != 32)
   {
     sprintf(note, "remaining characters should all be '\\0'");
-    lasheader->add_fail("system identifier", note);
+    lasheader->add_fail("generating software", note);
   }
 
   // check file creation date
@@ -520,7 +550,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
       if (lasheader->number_of_point_records != lasinventory.number_of_point_records)
       {
 #ifdef _WIN32
-        sprintf(note, "there are only %I64d point records and not %I64", (I64)lasinventory.number_of_point_records, (I64)lasheader->number_of_point_records);
+        sprintf(note, "there are only %I64d point records and not %I64d", (I64)lasinventory.number_of_point_records, (I64)lasheader->number_of_point_records);
 #else
         sprintf(note, "there are only %lld point records and not %lld", (I64)lasinventory.number_of_point_records, (I64)lasheader->number_of_point_records);
 #endif
@@ -649,11 +679,13 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     lasheader->add_warning("z scale factor", note);
   }
 
+  // check global encoding 
+
   if ((lasheader->version_major == 1) && (lasheader->version_minor >= 3))
   {
     if (((lasheader->global_encoding & 2) == 0) && (lasheader->start_of_waveform_data_packet_record != 0))
     {
-      sprintf(note, "should be 0 because global encoding bit 1 is not set and not %u", (unsigned int)lasheader->start_of_waveform_data_packet_record);
+      sprintf(note, "should be 0 and not %u because global encoding bit 1 is not set", (U32)lasheader->start_of_waveform_data_packet_record);
       lasheader->add_fail("start of waveform data packet record", note);
     }
     else if (((lasheader->global_encoding & 2) == 2) && (lasheader->start_of_waveform_data_packet_record == 0))
