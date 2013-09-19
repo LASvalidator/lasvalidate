@@ -636,7 +636,9 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
       F64_NOT_CLOSE_POSITIVE(lasheader->x_scale_factor, 0.000025, 0.0000001) &&
       F64_NOT_CLOSE_POSITIVE(lasheader->x_scale_factor, 0.0000025, 0.0000001))
   {
-    sprintf(note, "should be factor ten of 0.1 or 0.25 and not %g", lasheader->x_scale_factor);
+    CHAR string[256];
+    lidardouble2string(string, lasheader->x_scale_factor);
+    sprintf(note, "should be factor ten of 0.1 or 0.25 and not %s", string);
     lasheader->add_warning("x scale factor", note);
   }
 
@@ -656,7 +658,9 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
       F64_NOT_CLOSE_POSITIVE(lasheader->y_scale_factor, 0.000025, 0.0000001) &&
       F64_NOT_CLOSE_POSITIVE(lasheader->y_scale_factor, 0.0000025, 0.0000001))
   {
-    sprintf(note, "should be factor ten of 0.1 or 0.25 and not %g", lasheader->y_scale_factor);
+    CHAR string[256];
+    lidardouble2string(string, lasheader->y_scale_factor);
+    sprintf(note, "should be factor ten of 0.1 or 0.25 and not %s", string);
     lasheader->add_warning("y scale factor", note);
   }
   if (F64_NOT_CLOSE_POSITIVE(lasheader->z_scale_factor, 0.01, 0.0000001) &&
@@ -675,7 +679,9 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
       F64_NOT_CLOSE_POSITIVE(lasheader->z_scale_factor, 0.000025, 0.0000001) &&
       F64_NOT_CLOSE_POSITIVE(lasheader->z_scale_factor, 0.0000025, 0.0000001))
   {
-    sprintf(note, "should be factor ten of 0.1 or 0.25 and not %g", lasheader->z_scale_factor);
+    CHAR string[256];
+    lidardouble2string(string, lasheader->z_scale_factor);
+    sprintf(note, "should be factor ten of 0.1 or 0.25 and not %s", string);
     lasheader->add_warning("z scale factor", note);
   }
 
