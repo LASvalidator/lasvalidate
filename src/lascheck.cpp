@@ -827,6 +827,51 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     }
   }
 
+  // check for odd intensities
+
+  if (lasinventory.is_active())
+  {
+    if ((lasinventory.number_of_point_records > 1) && (lasinventory.min_intensity == lasinventory.max_intensity))
+    {
+#ifdef _WIN32
+      sprintf(note, "intensity of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_intensity);
+#else
+      sprintf(note, "intensity of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_intensity);
+#endif
+      lasheader->add_warning("intensity", note);
+    }
+  }
+
+  // check for odd scan angles
+
+  if (lasinventory.is_active())
+  {
+    if ((lasinventory.number_of_point_records > 1) && (lasinventory.min_scan_angle_rank == lasinventory.max_scan_angle_rank))
+    {
+#ifdef _WIN32
+      sprintf(note, "scan angle rank of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+#else
+      sprintf(note, "scan angle rank of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+#endif
+      lasheader->add_warning("scan angle rank", note);
+    }
+  }
+
+  // check for zero point source IDs
+
+  if (lasinventory.is_active())
+  {
+    if ((lasheader->file_source_id == 0) && (lasinventory.number_of_point_records > 1) && (lasinventory.min_point_source_ID == 0) && (lasinventory.max_point_source_ID))
+    {
+#ifdef _WIN32
+      sprintf(note, "file source ID of header and point source ID of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+#else
+      sprintf(note, "file source ID of header and point source ID of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+#endif
+      lasheader->add_warning("point source ID", note);
+    }
+  }
+
   // check for point data formats 1 and higher in the inventory whether all GPS time stamps are identical
 
   if (lasheader->point_data_format > 0)
