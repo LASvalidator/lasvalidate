@@ -80,15 +80,15 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.82072e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000058207195</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.82077e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000058207661</note>
       </warning>
       <warning>
         <variable>z scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 7.69855e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000007698545</note>
       </warning>
     </details>
   </report>
@@ -116,15 +116,15 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.15864e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000051586409</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.82075e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000058207537</note>
       </warning>
       <warning>
         <variable>z scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 9.99379e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.00000000999379</note>
       </warning>
     </details>
   </report>
@@ -152,15 +152,15 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.82072e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000058207195</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.82077e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000058207661</note>
       </warning>
       <warning>
         <variable>z scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 7.69855e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000007698545</note>
       </warning>
     </details>
   </report>
@@ -413,8 +413,18 @@
       <CRS>UTM 47 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3772738 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3772738 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -427,8 +437,18 @@
       <CRS>UTM 47 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 4036528 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 4036528 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -568,6 +588,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3510505 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3510505 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -596,6 +624,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3510505 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3510505 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -609,8 +645,14 @@
       <CRS>UTM 16 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 6684448 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -647,8 +689,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 8832571 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 8832571 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -661,8 +713,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 8579773 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 8579773 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -675,8 +737,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 2343227 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 2343227 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -689,8 +761,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 2515945 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 2515945 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -703,8 +785,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3578524 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3578524 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -717,8 +809,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3145078 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3145078 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -731,8 +833,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1947868 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1947868 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -745,8 +857,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3572246 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3572246 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -759,8 +881,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3315979 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3315979 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -773,8 +905,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1502597 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1502597 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -787,8 +929,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 2080878 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 2080878 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -801,8 +953,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 2548568 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 2548568 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -815,8 +977,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 5321957 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 5321957 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -829,8 +1001,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 7446774 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 7446774 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -843,8 +1025,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 5230432 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 5230432 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -857,8 +1049,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 10962579 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 10962579 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -871,8 +1073,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 4340952 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 4340952 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -885,8 +1097,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 4555465 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 4555465 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -899,8 +1121,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 5228475 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 5228475 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -913,8 +1145,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 4279856 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 4279856 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -927,8 +1169,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 6386105 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 6386105 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -941,8 +1193,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 6573785 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 6573785 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -955,8 +1217,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 2116133 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 2116133 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -969,8 +1241,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1242557 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1242557 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -1226,6 +1508,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 71232 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 71232 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1246,6 +1536,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 16824 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1266,6 +1560,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 16233 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1286,6 +1584,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 18002 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1306,6 +1608,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 20173 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1593,6 +1899,14 @@
         <note>there are 1094283 points with a number of returns of given pulse of 0</note>
       </warning>
       <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1094283 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1094283 points is 0</note>
+      </warning>
+      <warning>
         <variable>GPS time</variable>
         <note>time stamps of all 1094283 points are 0</note>
       </warning>
@@ -1620,6 +1934,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1175406 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1175406 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1644,6 +1966,10 @@
         <variable>file creation year</variable>
         <note>not set</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 103090 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1664,6 +1990,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 712435 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 712435 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1700,11 +2034,11 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 1e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000001</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 1e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000001</note>
       </warning>
     </details>
   </report>
@@ -1719,8 +2053,14 @@
       <CRS>UTM 37 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 189389 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -1747,8 +2087,14 @@
       <CRS>UTM 19 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 8050965 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -1768,6 +2114,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 58047 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1900,6 +2250,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 8054523 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 8054523 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1920,6 +2278,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 8054523 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 8054523 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -1933,8 +2299,18 @@
       <CRS>stateplane83 AK_10</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 492737 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 492737 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -2106,6 +2482,14 @@
         <variable>number of returns of given pulse</variable>
         <note>there are 793292 points with a number of returns of given pulse of 0</note>
       </warning>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 793292 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 793292 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2134,6 +2518,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>point source ID</variable>
+        <note>file source ID of header and point source ID of all 838865 points is -10</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2156,11 +2544,11 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 1e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000001</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 1e-009</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000001</note>
       </warning>
     </details>
   </report>
@@ -2182,6 +2570,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 275611 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2202,6 +2594,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 329446 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2222,6 +2618,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 309645 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2242,6 +2642,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 173320 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2294,6 +2698,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 3245200 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 3245200 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2335,8 +2747,18 @@
       <CRS>UTM 51 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 4464314 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 4464314 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -2358,15 +2780,15 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 1.0055e-006</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.0000010055</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 9.355e-007</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.0000009355</note>
       </warning>
       <warning>
         <variable>z scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 4.73613e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000047361328</note>
       </warning>
       <warning>
         <variable>return number</variable>
@@ -2375,6 +2797,14 @@
       <warning>
         <variable>number of returns of given pulse</variable>
         <note>there are 100572 points with a number of returns of given pulse of 0</note>
+      </warning>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 100572 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 100572 points is 0</note>
       </warning>
       <warning>
         <variable>GPS time</variable>
@@ -2401,6 +2831,14 @@
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
       <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 100572 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 100572 points is 0</note>
+      </warning>
+      <warning>
         <variable>GPS time</variable>
         <note>time stamps of all 100572 points are 0</note>
       </warning>
@@ -2426,15 +2864,15 @@
       </fail>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 4.26875e-007</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000426875</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 5.23e-007</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000523</note>
       </warning>
       <warning>
         <variable>z scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 2.54059e-008</note>
+        <note>should be factor ten of 0.1 or 0.25 and not 0.000000025405884</note>
       </warning>
       <warning>
         <variable>return number</variable>
@@ -2443,6 +2881,14 @@
       <warning>
         <variable>number of returns of given pulse</variable>
         <note>there are 1064634 points with a number of returns of given pulse of 0</note>
+      </warning>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1064634 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1064634 points is 0</note>
       </warning>
       <warning>
         <variable>GPS time</variable>
@@ -2468,6 +2914,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1064634 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1064634 points is 0</note>
+      </warning>
       <warning>
         <variable>GPS time</variable>
         <note>time stamps of all 1064634 points are 0</note>
@@ -2590,6 +3044,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 12544256 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 12544256 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2603,8 +3065,18 @@
       <CRS>UTM 60 southern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      warning
     </summary>
+    <details>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 107648325 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 107648325 points is 0</note>
+      </warning>
+    </details>
   </report>
   <report>
     <file>
@@ -2624,6 +3096,14 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1599177 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1599177 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2671,6 +3151,10 @@
       <warning>
         <variable>number of returns of given pulse</variable>
         <note>there are 30221696 points with a number of returns of given pulse of 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 30221696 points is 0</note>
       </warning>
     </details>
   </report>
@@ -2737,6 +3221,14 @@
         <note>not set</note>
       </fail>
       <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 135123 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 135123 points is 0</note>
+      </warning>
+      <warning>
         <variable>GPS time</variable>
         <note>time stamps of all 135123 points are 0</note>
       </warning>
@@ -2765,6 +3257,14 @@
         <note>not set</note>
       </fail>
       <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 135123 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 135123 points is 0</note>
+      </warning>
+      <warning>
         <variable>GPS time</variable>
         <note>time stamps of all 135123 points are 0</note>
       </warning>
@@ -2788,6 +3288,14 @@
         <variable>number of point by return</variable>
         <note>the number of 1st return(s) is 949750 and not 0</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 949750 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 949750 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2884,6 +3392,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>point source ID</variable>
+        <note>file source ID of header and point source ID of all 2745445 points is -13</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2912,6 +3424,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>point source ID</variable>
+        <note>file source ID of header and point source ID of all 5559234 points is -12</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2940,6 +3456,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>point source ID</variable>
+        <note>file source ID of header and point source ID of all 5742944 points is -12</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -2968,6 +3488,10 @@
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>point source ID</variable>
+        <note>file source ID of header and point source ID of all 4054702 points is -13</note>
+      </warning>
     </details>
   </report>
   <report>
@@ -3072,6 +3596,14 @@
         <variable>CRS</variable>
         <note>the 3 geokeys do not properly specify a Coordinate Reference System</note>
       </fail>
+      <warning>
+        <variable>intensity</variable>
+        <note>intensity of all 1010226 points is 0</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 1010226 points is 0</note>
+      </warning>
       <warning>
         <variable>GPS time</variable>
         <note>time stamps of all 1010226 points are 0</note>
@@ -3201,8 +3733,8 @@
   <total>
     fail
     <details>
-      <pass>47</pass>
-      <warning>0</warning>
+      <pass>15</pass>
+      <warning>32</warning>
       <fail>89</fail>
     </details>
   </total>
