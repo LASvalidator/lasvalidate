@@ -52,9 +52,6 @@ public:
 private:
   F64 min_x, min_y, min_z;
   F64 max_x, max_y, max_z;
-  I64 points_with_return_number_zero;
-  I64 points_with_number_of_returns_zero;
-  I64 points_with_return_number_larger_than_number_of_returns;
   I64 points_outside_bounding_box;
   LASinventory lasinventory;
 };
