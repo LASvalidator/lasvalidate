@@ -83,28 +83,7 @@ void LAScheck::parse(const LASpoint* laspoint)
 
   lasinventory.add(laspoint);
 
-  // check return count
-
-  if (laspoint->get_return_number() == 0)
-  {
-    points_with_return_number_zero++;
-  }
-
-  // check number of returns of given pulse
-
-  if (laspoint->get_number_of_returns_of_given_pulse() == 0)
-  {
-    points_with_number_of_returns_zero++;
-  }
-
-  // check return count against number of returns of given pulse
-
-  if (laspoint->get_return_number() > laspoint->get_number_of_returns_of_given_pulse())
-  {
-    points_with_return_number_larger_than_number_of_returns++;
-  }
-
-  // check bounding box
+  // check point against bounding box
 
   if (!laspoint->inside_bounding_box(min_x, min_y, min_z, max_x, max_y, max_z))
   {
@@ -703,6 +682,16 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
   // check bounding box x y z
 
+  if (points_outside_bounding_box)
+  {
+#ifdef _WIN32
+    sprintf(note, "there are %I64d points outside of the bounding box specified in the LAS file header", points_outside_bounding_box);
+#else
+    sprintf(note, "there are %lld points outside of the bounding box specified in the LAS file header", points_outside_bounding_box);
+#endif
+    lasheader->add_fail("bounding box", note);
+  }
+
   if (lasinventory.is_active())
   {
     if ((lasheader->min_x - 0.5*lasheader->x_scale_factor) > lasheader->get_x(lasinventory.min_X))
@@ -827,6 +816,27 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     }
   }
 
+  // check the inventory for invalid combinations of return numbers and number of returns of given pulse
+
+  if (lasinventory.is_active())
+  {
+    for (i = 0; i < 16; i++)
+    {
+      for (j = i+1; j < 16; j++)
+      {
+        if (lasinventory.return_count_for_return_number[i][j] != 0)
+        {
+#ifdef _WIN32
+          sprintf(note, "there are %I64d points with a larger return number (%d) than their number of returns of given pulse (%d)", lasinventory.return_count_for_return_number[i][j], j, i);
+#else
+          sprintf(note, "there are %lld points with a larger return number (%d) than their number of returns of given pulse (%d)", lasinventory.return_count_for_return_number[i][j], j, i);
+#endif
+          lasheader->add_fail("return number", note);
+        }
+      }
+    }
+  }
+
   // check for odd intensities
 
   if (lasinventory.is_active())
@@ -943,9 +953,6 @@ LAScheck::LAScheck(const LASheader* lasheader)
   max_x = lasheader->max_x + lasheader->x_scale_factor;
   max_y = lasheader->max_y + lasheader->y_scale_factor;
   max_z = lasheader->max_z + lasheader->z_scale_factor;
-  points_with_return_number_zero = 0;
-  points_with_number_of_returns_zero = 0;
-  points_with_return_number_larger_than_number_of_returns = 0;
   points_outside_bounding_box = 0;
 }
 
