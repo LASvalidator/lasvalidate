@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
   U32 num_fail = 0;
   U32 num_warning = 0;
 
-  fprintf(stderr, "This is version %d of the LAS validator. Please contact\n", LASREAD_BUILD_DATE);
+  fprintf(stderr, "This is version %d of the LAS validator. Please contact\n", VALIDATE_VERSION);
   fprintf(stderr, "me at 'martin.isenburg@rapidlasso.com' if you disagree with\n");
   fprintf(stderr, "validation reports, want additional checks, or find bugs.\n\n");
 

@@ -3,7 +3,7 @@
   <report>
     <file>
       <name>0522WR17_ahd.laz</name>
-      <path>d:\lastools_dev\0522WR17_ahd.laz</path>
+      <path>D:\lastools_dev\0522WR17_ahd.laz</path>
       <version>1.1</version>
       <system_identifier>(unknown)</system_identifier>
       <generating_software>RASP 0.94.79 (20101130)</generating_software>
@@ -39,7 +39,7 @@
   <report>
     <file>
       <name>173750_457000_1_delivered.laz</name>
-      <path>d:\lastools_dev\173750_457000_1_delivered.laz</path>
+      <path>D:\lastools_dev\173750_457000_1_delivered.laz</path>
       <version>1.2</version>
       <system_identifier>Flimap 000 Laser413</system_identifier>
       <generating_software>Flip7</generating_software>
@@ -83,7 +83,7 @@
   <report>
     <file>
       <name>173750_457000_1_FME-projection-and-compression.laz</name>
-      <path>d:\lastools_dev\173750_457000_1_FME-projection-and-compression.laz</path>
+      <path>D:\lastools_dev\173750_457000_1_FME-projection-and-compression.laz</path>
       <version>1.2</version>
       <system_identifier>Flimap 000 Laser413</system_identifier>
       <generating_software>Flip7</generating_software>
@@ -143,7 +143,7 @@
   <report>
     <file>
       <name>173750_457000_1_FME_compressed.laz</name>
-      <path>d:\lastools_dev\173750_457000_1_FME_compressed.laz</path>
+      <path>D:\lastools_dev\173750_457000_1_FME_compressed.laz</path>
       <version>1.2</version>
       <system_identifier>Flimap 000 Laser413</system_identifier>
       <generating_software>Flip7</generating_software>
@@ -195,7 +195,7 @@
   <report>
     <file>
       <name>173750_457000_1_FME_Only_Compressed.laz</name>
-      <path>d:\lastools_dev\173750_457000_1_FME_Only_Compressed.laz</path>
+      <path>D:\lastools_dev\173750_457000_1_FME_Only_Compressed.laz</path>
       <version>1.2</version>
       <system_identifier>Flimap 000 Laser413</system_identifier>
       <generating_software>Flip7</generating_software>
@@ -255,7 +255,7 @@
   <report>
     <file>
       <name>1958-23-25.laz</name>
-      <path>d:\lastools_dev\1958-23-25.laz</path>
+      <path>D:\lastools_dev\1958-23-25.laz</path>
       <version>1.2</version>
       <system_identifier>NIIRS10</system_identifier>
       <generating_software>LIDAR1 tiled</generating_software>
@@ -275,7 +275,7 @@
   <report>
     <file>
       <name>20091016_175024.atm4cT3.laz</name>
-      <path>d:\lastools_dev\20091016_175024.atm4cT3.laz</path>
+      <path>D:\lastools_dev\20091016_175024.atm4cT3.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>via LASreaderQFIT (120111)</generating_software>
@@ -289,7 +289,7 @@
   <report>
     <file>
       <name>2726-29-08.laz</name>
-      <path>d:\lastools_dev\2726-29-08.laz</path>
+      <path>D:\lastools_dev\2726-29-08.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lassort (110815) unlicensed</generating_software>
@@ -303,7 +303,7 @@
   <report>
     <file>
       <name>2726-29-09.laz</name>
-      <path>d:\lastools_dev\2726-29-09.laz</path>
+      <path>D:\lastools_dev\2726-29-09.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lassort (110815) unlicensed</generating_software>
@@ -323,7 +323,7 @@
   <report>
     <file>
       <name>433E_4992N.laz</name>
-      <path>d:\lastools_dev\433E_4992N.laz</path>
+      <path>D:\lastools_dev\433E_4992N.laz</path>
       <version>1.1</version>
       <system_identifier>Virtual Geomatics</system_identifier>
       <generating_software>VG4D</generating_software>
@@ -463,7 +463,7 @@
   <report>
     <file>
       <name>433E_4993N.laz</name>
-      <path>d:\lastools_dev\433E_4993N.laz</path>
+      <path>D:\lastools_dev\433E_4993N.laz</path>
       <version>1.1</version>
       <system_identifier>Virtual Geomatics</system_identifier>
       <generating_software>VG4D</generating_software>
@@ -603,7 +603,7 @@
   <report>
     <file>
       <name>44A.laz</name>
-      <path>d:\lastools_dev\44A.laz</path>
+      <path>D:\lastools_dev\44A.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 110920)</generating_software>
@@ -617,7 +617,7 @@
   <report>
     <file>
       <name>44A_h.laz</name>
-      <path>d:\lastools_dev\44A_h.laz</path>
+      <path>D:\lastools_dev\44A_h.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (111006) unlicensed</generating_software>
@@ -631,7 +631,7 @@
   <report>
     <file>
       <name>4794752_c.laz</name>
-      <path>d:\lastools_dev\4794752_c.laz</path>
+      <path>D:\lastools_dev\4794752_c.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -655,7 +655,7 @@
   <report>
     <file>
       <name>4794752_c_gps_sorted.laz</name>
-      <path>d:\lastools_dev\4794752_c_gps_sorted.laz</path>
+      <path>D:\lastools_dev\4794752_c_gps_sorted.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lassort (120723) unlicensed</generating_software>
@@ -675,7 +675,7 @@
   <report>
     <file>
       <name>5038i3642_org_flightlines.laz</name>
-      <path>d:\lastools_dev\5038i3642_org_flightlines.laz</path>
+      <path>D:\lastools_dev\5038i3642_org_flightlines.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130126)</generating_software>
@@ -711,7 +711,7 @@
   <report>
     <file>
       <name>5038i3644_org_flightlines.laz</name>
-      <path>d:\lastools_dev\5038i3644_org_flightlines.laz</path>
+      <path>D:\lastools_dev\5038i3644_org_flightlines.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130126)</generating_software>
@@ -747,7 +747,7 @@
   <report>
     <file>
       <name>5126-05-38.laz</name>
-      <path>d:\lastools_dev\5126-05-38.laz</path>
+      <path>D:\lastools_dev\5126-05-38.laz</path>
       <version>1.2</version>
       <system_identifier>NIIRS10</system_identifier>
       <generating_software>LIDAR1 tiled</generating_software>
@@ -761,7 +761,7 @@
   <report>
     <file>
       <name>5126-05-57_sub_v1.laz</name>
-      <path>d:\lastools_dev\5126-05-57_sub_v1.laz</path>
+      <path>D:\lastools_dev\5126-05-57_sub_v1.laz</path>
       <version>1.2</version>
       <system_identifier>MODIFICATION                   </system_identifier>
       <generating_software>Aero-Metric LASLib             </generating_software>
@@ -785,7 +785,7 @@
   <report>
     <file>
       <name>5126-05-62.laz</name>
-      <path>d:\lastools_dev\5126-05-62.laz</path>
+      <path>D:\lastools_dev\5126-05-62.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lassort (110815) unlicensed</generating_software>
@@ -799,7 +799,7 @@
   <report>
     <file>
       <name>5126-10-40.laz</name>
-      <path>d:\lastools_dev\5126-10-40.laz</path>
+      <path>D:\lastools_dev\5126-10-40.laz</path>
       <version>1.2</version>
       <system_identifier>MODIFICATION                   </system_identifier>
       <generating_software>Aero-Metric LASLib             </generating_software>
@@ -823,7 +823,7 @@
   <report>
     <file>
       <name>678 568.laz</name>
-      <path>d:\lastools_dev\678 568.laz</path>
+      <path>D:\lastools_dev\678 568.laz</path>
       <version>1.0</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -859,7 +859,7 @@
   <report>
     <file>
       <name>744.laz</name>
-      <path>d:\lastools_dev\744.laz</path>
+      <path>D:\lastools_dev\744.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by txt2las of LAStools</generating_software>
@@ -895,7 +895,7 @@
   <report>
     <file>
       <name>744_6070_c2.laz</name>
-      <path>d:\lastools_dev\744_6070_c2.laz</path>
+      <path>D:\lastools_dev\744_6070_c2.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by txt2las of LAStools</generating_software>
@@ -931,7 +931,7 @@
   <report>
     <file>
       <name>881comp.laz</name>
-      <path>d:\lastools_dev\881comp.laz</path>
+      <path>D:\lastools_dev\881comp.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (130409) unlicensed</generating_software>
@@ -951,7 +951,7 @@
   <report>
     <file>
       <name>a_Willmar_sub2_classified.laz</name>
-      <path>d:\lastools_dev\a_Willmar_sub2_classified.laz</path>
+      <path>D:\lastools_dev\a_Willmar_sub2_classified.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120822)</generating_software>
@@ -975,7 +975,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef001_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef001_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef001_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -999,7 +999,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef002_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef002_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef002_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1023,7 +1023,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef003_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef003_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef003_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120525)</generating_software>
@@ -1047,7 +1047,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef004_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef004_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef004_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1071,7 +1071,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef005_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef005_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef005_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1095,7 +1095,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef006_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef006_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef006_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1119,7 +1119,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef007_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef007_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-166_B_Reef007_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1143,7 +1143,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef008_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef008_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef008_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1167,7 +1167,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef009_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef009_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef009_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1191,7 +1191,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef010_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef010_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef010_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1215,7 +1215,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef011_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef011_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef011_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1239,7 +1239,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef012_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef012_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef012_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1263,7 +1263,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef013_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef013_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef013_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1287,7 +1287,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef014_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef014_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef014_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1311,7 +1311,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef015_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef015_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef015_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1335,7 +1335,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef016_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef016_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef016_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1359,7 +1359,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef017_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef017_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef017_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1383,7 +1383,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef018_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef018_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef018_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1407,7 +1407,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef019_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef019_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef019_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1431,7 +1431,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef020_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef020_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef020_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1455,7 +1455,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef021_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef021_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef021_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1479,7 +1479,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef022_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef022_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef022_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1503,7 +1503,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef023_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef023_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef023_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1527,7 +1527,7 @@
   <report>
     <file>
       <name>Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef024_1.laz</name>
-      <path>d:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef024_1.laz</path>
+      <path>D:\lastools_dev\Barrets_Reef_GeoAcoustics_SS2012_2010-168_B_Reef024_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 111216)</generating_software>
@@ -1551,7 +1551,7 @@
   <report>
     <file>
       <name>BL2996262.laz</name>
-      <path>d:\lastools_dev\BL2996262.laz</path>
+      <path>D:\lastools_dev\BL2996262.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -1603,7 +1603,7 @@
   <report>
     <file>
       <name>boisnoir000003_L3.laz</name>
-      <path>d:\lastools_dev\boisnoir000003_L3.laz</path>
+      <path>D:\lastools_dev\boisnoir000003_L3.laz</path>
       <version>1.0</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -1639,7 +1639,7 @@
   <report>
     <file>
       <name>boisnoir000010_L3.laz</name>
-      <path>d:\lastools_dev\boisnoir000010_L3.laz</path>
+      <path>D:\lastools_dev\boisnoir000010_L3.laz</path>
       <version>1.0</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -1679,7 +1679,7 @@
   <report>
     <file>
       <name>boisnoir000012_L3.laz</name>
-      <path>d:\lastools_dev\boisnoir000012_L3.laz</path>
+      <path>D:\lastools_dev\boisnoir000012_L3.laz</path>
       <version>1.0</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -1743,7 +1743,7 @@
   <report>
     <file>
       <name>boisnoir000017_L3.laz</name>
-      <path>d:\lastools_dev\boisnoir000017_L3.laz</path>
+      <path>D:\lastools_dev\boisnoir000017_L3.laz</path>
       <version>1.0</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -1779,7 +1779,7 @@
   <report>
     <file>
       <name>boisnoir000017_L3_h.laz</name>
-      <path>d:\lastools_dev\boisnoir000017_L3_h.laz</path>
+      <path>D:\lastools_dev\boisnoir000017_L3_h.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (130113) commercial</generating_software>
@@ -1811,7 +1811,7 @@
   <report>
     <file>
       <name>building.laz</name>
-      <path>d:\lastools_dev\building.laz</path>
+      <path>D:\lastools_dev\building.laz</path>
       <version>1.4</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasclassify (120107) academic</generating_software>
@@ -1839,7 +1839,7 @@
   <report>
     <file>
       <name>Building_1.laz</name>
-      <path>d:\lastools_dev\Building_1.laz</path>
+      <path>D:\lastools_dev\Building_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 111216)</generating_software>
@@ -1863,7 +1863,7 @@
   <report>
     <file>
       <name>Building_2.laz</name>
-      <path>d:\lastools_dev\Building_2.laz</path>
+      <path>D:\lastools_dev\Building_2.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 111216)</generating_software>
@@ -1887,7 +1887,7 @@
   <report>
     <file>
       <name>Building_3.laz</name>
-      <path>d:\lastools_dev\Building_3.laz</path>
+      <path>D:\lastools_dev\Building_3.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 111216)</generating_software>
@@ -1911,7 +1911,7 @@
   <report>
     <file>
       <name>Building_4.laz</name>
-      <path>d:\lastools_dev\Building_4.laz</path>
+      <path>D:\lastools_dev\Building_4.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 111216)</generating_software>
@@ -1935,7 +1935,7 @@
   <report>
     <file>
       <name>classify_s.laz</name>
-      <path>d:\lastools_dev\classify_s.laz</path>
+      <path>D:\lastools_dev\classify_s.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lassort (110815) unlicensed</generating_software>
@@ -1949,7 +1949,7 @@
   <report>
     <file>
       <name>cloud_847000_833000.laz</name>
-      <path>d:\lastools_dev\cloud_847000_833000.laz</path>
+      <path>D:\lastools_dev\cloud_847000_833000.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasclassify (121228) academic</generating_software>
@@ -1981,7 +1981,7 @@
   <report>
     <file>
       <name>comval_837000_882000.laz</name>
-      <path>d:\lastools_dev\comval_837000_882000.laz</path>
+      <path>D:\lastools_dev\comval_837000_882000.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasclassify (130126) commercial</generating_software>
@@ -2013,7 +2013,7 @@
   <report>
     <file>
       <name>cv_000019.laz</name>
-      <path>d:\lastools_dev\cv_000019.laz</path>
+      <path>D:\lastools_dev\cv_000019.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -2037,7 +2037,7 @@
   <report>
     <file>
       <name>cv_000019_fixed.laz</name>
-      <path>d:\lastools_dev\cv_000019_fixed.laz</path>
+      <path>D:\lastools_dev\cv_000019_fixed.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (130130) commercial</generating_software>
@@ -2073,7 +2073,7 @@
   <report>
     <file>
       <name>cv_000020.laz</name>
-      <path>d:\lastools_dev\cv_000020.laz</path>
+      <path>D:\lastools_dev\cv_000020.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -2097,7 +2097,7 @@
   <report>
     <file>
       <name>cv_000020_fixed.laz</name>
-      <path>d:\lastools_dev\cv_000020_fixed.laz</path>
+      <path>D:\lastools_dev\cv_000020_fixed.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (130130) commercial</generating_software>
@@ -2133,7 +2133,7 @@
   <report>
     <file>
       <name>cv_783000_789000.laz</name>
-      <path>d:\lastools_dev\cv_783000_789000.laz</path>
+      <path>D:\lastools_dev\cv_783000_789000.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) academic</generating_software>
@@ -2147,7 +2147,7 @@
   <report>
     <file>
       <name>cv_783000_790000.laz</name>
-      <path>d:\lastools_dev\cv_783000_790000.laz</path>
+      <path>D:\lastools_dev\cv_783000_790000.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) academic</generating_software>
@@ -2161,7 +2161,7 @@
   <report>
     <file>
       <name>cv_784000_788000.laz</name>
-      <path>d:\lastools_dev\cv_784000_788000.laz</path>
+      <path>D:\lastools_dev\cv_784000_788000.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) academic</generating_software>
@@ -2175,7 +2175,7 @@
   <report>
     <file>
       <name>cv_784000_790000.laz</name>
-      <path>d:\lastools_dev\cv_784000_790000.laz</path>
+      <path>D:\lastools_dev\cv_784000_790000.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) academic</generating_software>
@@ -2189,7 +2189,7 @@
   <report>
     <file>
       <name>Dave_nov25_qfittest.4919.laz</name>
-      <path>d:\lastools_dev\Dave_nov25_qfittest.4919.laz</path>
+      <path>D:\lastools_dev\Dave_nov25_qfittest.4919.laz</path>
       <version>1.2</version>
       <system_identifier>PDAL</system_identifier>
       <generating_software>PDAL 0.1.0</generating_software>
@@ -2237,7 +2237,7 @@
   <report>
     <file>
       <name>DSM_500000_130000_sub.laz</name>
-      <path>d:\lastools_dev\DSM_500000_130000_sub.laz</path>
+      <path>D:\lastools_dev\DSM_500000_130000_sub.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120628)</generating_software>
@@ -2265,7 +2265,7 @@
   <report>
     <file>
       <name>ds_with_height.laz</name>
-      <path>d:\lastools_dev\ds_with_height.laz</path>
+      <path>D:\lastools_dev\ds_with_height.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (110915) unlicensed</generating_software>
@@ -2293,7 +2293,7 @@
   <report>
     <file>
       <name>DTM_500000_130000_sub.laz</name>
-      <path>d:\lastools_dev\DTM_500000_130000_sub.laz</path>
+      <path>D:\lastools_dev\DTM_500000_130000_sub.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120628)</generating_software>
@@ -2321,7 +2321,7 @@
   <report>
     <file>
       <name>el_hierro_grove.laz</name>
-      <path>d:\lastools_dev\el_hierro_grove.laz</path>
+      <path>D:\lastools_dev\el_hierro_grove.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120408)</generating_software>
@@ -2335,7 +2335,7 @@
   <report>
     <file>
       <name>extract.laz</name>
-      <path>d:\lastools_dev\extract.laz</path>
+      <path>D:\lastools_dev\extract.laz</path>
       <version>1.2</version>
       <system_identifier>ALSXX</system_identifier>
       <generating_software>ALSXX_PP V2.71 BUILD#15</generating_software>
@@ -2363,7 +2363,7 @@
   <report>
     <file>
       <name>fact.laz</name>
-      <path>d:\lastools_dev\fact.laz</path>
+      <path>D:\lastools_dev\fact.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 110915)</generating_software>
@@ -2387,7 +2387,7 @@
   <report>
     <file>
       <name>fm11_332500_5230000.laz</name>
-      <path>d:\lastools_dev\fm11_332500_5230000.laz</path>
+      <path>D:\lastools_dev\fm11_332500_5230000.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasduplicate (120117) unlicense</generating_software>
@@ -2401,7 +2401,7 @@
   <report>
     <file>
       <name>fredericton.laz</name>
-      <path>d:\lastools_dev\fredericton.laz</path>
+      <path>D:\lastools_dev\fredericton.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasclassify (111229) academic</generating_software>
@@ -2421,7 +2421,7 @@
   <report>
     <file>
       <name>fst.laz</name>
-      <path>d:\lastools_dev\fst.laz</path>
+      <path>D:\lastools_dev\fst.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasclip (110915) unlicensed</generating_software>
@@ -2445,7 +2445,7 @@
   <report>
     <file>
       <name>fugro610000-7542000_g.laz</name>
-      <path>d:\lastools_dev\fugro610000-7542000_g.laz</path>
+      <path>D:\lastools_dev\fugro610000-7542000_g.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 121212)</generating_software>
@@ -2473,7 +2473,7 @@
   <report>
     <file>
       <name>fugro610000-7543000_g.laz</name>
-      <path>d:\lastools_dev\fugro610000-7543000_g.laz</path>
+      <path>D:\lastools_dev\fugro610000-7543000_g.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 121212)</generating_software>
@@ -2501,7 +2501,7 @@
   <report>
     <file>
       <name>fugro611000-7542000_g.laz</name>
-      <path>d:\lastools_dev\fugro611000-7542000_g.laz</path>
+      <path>D:\lastools_dev\fugro611000-7542000_g.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 121212)</generating_software>
@@ -2529,7 +2529,7 @@
   <report>
     <file>
       <name>fugro611000-7543000_g.laz</name>
-      <path>d:\lastools_dev\fugro611000-7543000_g.laz</path>
+      <path>D:\lastools_dev\fugro611000-7543000_g.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 121212)</generating_software>
@@ -2557,7 +2557,7 @@
   <report>
     <file>
       <name>GS_Hamilton_PreCleaned.laz</name>
-      <path>d:\lastools_dev\GS_Hamilton_PreCleaned.laz</path>
+      <path>D:\lastools_dev\GS_Hamilton_PreCleaned.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by LASreaderTXT</generating_software>
@@ -2585,7 +2585,7 @@
   <report>
     <file>
       <name>GS_Hamilton_PreCleaned_export.laz</name>
-      <path>d:\lastools_dev\GS_Hamilton_PreCleaned_export.laz</path>
+      <path>D:\lastools_dev\GS_Hamilton_PreCleaned_export.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by LASreaderTXT</generating_software>
@@ -2613,7 +2613,7 @@
   <report>
     <file>
       <name>Helena_1.laz</name>
-      <path>d:\lastools_dev\Helena_1.laz</path>
+      <path>D:\lastools_dev\Helena_1.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120216)</generating_software>
@@ -2637,7 +2637,7 @@
   <report>
     <file>
       <name>in.laz</name>
-      <path>d:\lastools_dev\in.laz</path>
+      <path>D:\lastools_dev\in.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (120813) commercial</generating_software>
@@ -2665,7 +2665,7 @@
   <report>
     <file>
       <name>input_thinned.laz</name>
-      <path>d:\lastools_dev\input_thinned.laz</path>
+      <path>D:\lastools_dev\input_thinned.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120712)</generating_software>
@@ -2693,7 +2693,7 @@
   <report>
     <file>
       <name>IowaDNR-stippled-overlap.laz</name>
-      <path>d:\lastools_dev\IowaDNR-stippled-overlap.laz</path>
+      <path>D:\lastools_dev\IowaDNR-stippled-overlap.laz</path>
       <version>1.0</version>
       <system_identifier>OTHER</system_identifier>
       <generating_software>LP360 from QCoherent Software  </generating_software>
@@ -2717,7 +2717,7 @@
   <report>
     <file>
       <name>IowaDNR-stippled-overlap_1.laz</name>
-      <path>d:\lastools_dev\IowaDNR-stippled-overlap_1.laz</path>
+      <path>D:\lastools_dev\IowaDNR-stippled-overlap_1.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasoverage (120712) commercial</generating_software>
@@ -2741,7 +2741,7 @@
   <report>
     <file>
       <name>IowaDNR-stippled-overlap_age.laz</name>
-      <path>d:\lastools_dev\IowaDNR-stippled-overlap_age.laz</path>
+      <path>D:\lastools_dev\IowaDNR-stippled-overlap_age.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasoverage (120930) commercial</generating_software>
@@ -2781,7 +2781,7 @@
   <report>
     <file>
       <name>laszipped.laz</name>
-      <path>d:\lastools_dev\laszipped.laz</path>
+      <path>D:\lastools_dev\laszipped.laz</path>
       <version>1.1</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasground (121228) unlicensed</generating_software>
@@ -2817,7 +2817,7 @@
   <report>
     <file>
       <name>LDR030828_213842_0.laz</name>
-      <path>d:\lastools_dev\LDR030828_213842_0.laz</path>
+      <path>D:\lastools_dev\LDR030828_213842_0.laz</path>
       <version>1.0</version>
       <system_identifier>ALSXX</system_identifier>
       <generating_software>ALSXX_PP V2.56c</generating_software>
@@ -2853,7 +2853,7 @@
   <report>
     <file>
       <name>LDR120907_041029_1.laz</name>
-      <path>d:\lastools_dev\LDR120907_041029_1.laz</path>
+      <path>D:\lastools_dev\LDR120907_041029_1.laz</path>
       <version>1.2</version>
       <system_identifier>ALSXX</system_identifier>
       <generating_software>ALSXX_PP V2.74 BUILD#9</generating_software>
@@ -2881,7 +2881,7 @@
   <report>
     <file>
       <name>line01.laz</name>
-      <path>d:\lastools_dev\line01.laz</path>
+      <path>D:\lastools_dev\line01.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by LASreaderBIN</generating_software>
@@ -2905,7 +2905,7 @@
   <report>
     <file>
       <name>line02.laz</name>
-      <path>d:\lastools_dev\line02.laz</path>
+      <path>D:\lastools_dev\line02.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by LASreaderBIN</generating_software>
@@ -2929,7 +2929,7 @@
   <report>
     <file>
       <name>line03.laz</name>
-      <path>d:\lastools_dev\line03.laz</path>
+      <path>D:\lastools_dev\line03.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by LASreaderBIN</generating_software>
@@ -2953,7 +2953,7 @@
   <report>
     <file>
       <name>line04.laz</name>
-      <path>d:\lastools_dev\line04.laz</path>
+      <path>D:\lastools_dev\line04.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by LASreaderBIN</generating_software>
@@ -2977,7 +2977,7 @@
   <report>
     <file>
       <name>merged_poland.laz</name>
-      <path>d:\lastools_dev\merged_poland.laz</path>
+      <path>D:\lastools_dev\merged_poland.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -3009,7 +3009,7 @@
   <report>
     <file>
       <name>Nice_airport.laz</name>
-      <path>d:\lastools_dev\Nice_airport.laz</path>
+      <path>D:\lastools_dev\Nice_airport.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 111127)</generating_software>
@@ -3037,7 +3037,7 @@
   <report>
     <file>
       <name>ot_39120G1-118A.laz</name>
-      <path>d:\lastools_dev\ot_39120G1-118A.laz</path>
+      <path>D:\lastools_dev\ot_39120G1-118A.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -3065,7 +3065,7 @@
   <report>
     <file>
       <name>pampanga_50.laz</name>
-      <path>d:\lastools_dev\pampanga_50.laz</path>
+      <path>D:\lastools_dev\pampanga_50.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasmerge (version 130126)</generating_software>
@@ -3089,7 +3089,7 @@
   <report>
     <file>
       <name>Pine_Ridge_2012.laz</name>
-      <path>d:\lastools_dev\Pine_Ridge_2012.laz</path>
+      <path>D:\lastools_dev\Pine_Ridge_2012.laz</path>
       <version>1.2</version>
       <system_identifier>libLAS</system_identifier>
       <generating_software>libLAS 1.7.0</generating_software>
@@ -3141,7 +3141,7 @@
   <report>
     <file>
       <name>Pine_Ridge_2012_fixed.laz</name>
-      <path>d:\lastools_dev\Pine_Ridge_2012_fixed.laz</path>
+      <path>D:\lastools_dev\Pine_Ridge_2012_fixed.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130213)</generating_software>
@@ -3173,7 +3173,7 @@
   <report>
     <file>
       <name>proctor_2012.laz</name>
-      <path>d:\lastools_dev\proctor_2012.laz</path>
+      <path>D:\lastools_dev\proctor_2012.laz</path>
       <version>1.2</version>
       <system_identifier>libLAS</system_identifier>
       <generating_software>libLAS 1.7.0</generating_software>
@@ -3225,7 +3225,7 @@
   <report>
     <file>
       <name>proctor_2012_fixed.laz</name>
-      <path>d:\lastools_dev\proctor_2012_fixed.laz</path>
+      <path>D:\lastools_dev\proctor_2012_fixed.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130213)</generating_software>
@@ -3257,7 +3257,7 @@
   <report>
     <file>
       <name>pt000303.laz</name>
-      <path>d:\lastools_dev\pt000303.laz</path>
+      <path>D:\lastools_dev\pt000303.laz</path>
       <version>1.1</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -3289,7 +3289,7 @@
   <report>
     <file>
       <name>pt000317.laz</name>
-      <path>d:\lastools_dev\pt000317.laz</path>
+      <path>D:\lastools_dev\pt000317.laz</path>
       <version>1.1</version>
       <system_identifier></system_identifier>
       <generating_software>TerraScan</generating_software>
@@ -3321,7 +3321,7 @@
   <report>
     <file>
       <name>QC189.laz</name>
-      <path>d:\lastools_dev\QC189.laz</path>
+      <path>D:\lastools_dev\QC189.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120117)</generating_software>
@@ -3341,7 +3341,7 @@
   <report>
     <file>
       <name>QC189_1.laz</name>
-      <path>d:\lastools_dev\QC189_1.laz</path>
+      <path>D:\lastools_dev\QC189_1.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 120124)</generating_software>
@@ -3355,7 +3355,7 @@
   <report>
     <file>
       <name>R2Sonic.laz</name>
-      <path>d:\lastools_dev\R2Sonic.laz</path>
+      <path>D:\lastools_dev\R2Sonic.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>txt2las (version 120607)</generating_software>
@@ -3383,7 +3383,7 @@
   <report>
     <file>
       <name>reef.laz</name>
-      <path>d:\lastools_dev\reef.laz</path>
+      <path>D:\lastools_dev\reef.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasmerge (version 120107)</generating_software>
@@ -3407,7 +3407,7 @@
   <report>
     <file>
       <name>sample_outlier.laz</name>
-      <path>d:\lastools_dev\sample_outlier.laz</path>
+      <path>D:\lastools_dev\sample_outlier.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>created by txt2las of LAStools</generating_software>
@@ -3435,7 +3435,7 @@
   <report>
     <file>
       <name>scans_RDNAP_All.laz</name>
-      <path>d:\lastools_dev\scans_RDNAP_All.laz</path>
+      <path>D:\lastools_dev\scans_RDNAP_All.laz</path>
       <version>1.2</version>
       <system_identifier></system_identifier>
       <generating_software></generating_software>
@@ -3487,7 +3487,7 @@
   <report>
     <file>
       <name>Shugarloaf - Scanner 1 - 120315_162343_Scanner_1.laz</name>
-      <path>d:\lastools_dev\Shugarloaf - Scanner 1 - 120315_162343_Scanner_1.laz</path>
+      <path>D:\lastools_dev\Shugarloaf - Scanner 1 - 120315_162343_Scanner_1.laz</path>
       <version>1.2</version>
       <system_identifier>EXTRACTION</system_identifier>
       <generating_software>RiPROCESS 1.5.7.125</generating_software>
@@ -3507,7 +3507,7 @@
   <report>
     <file>
       <name>Shugarloaf - Scanner 1 - 120315_162343_Scanner_cm.laz</name>
-      <path>d:\lastools_dev\Shugarloaf - Scanner 1 - 120315_162343_Scanner_cm.laz</path>
+      <path>D:\lastools_dev\Shugarloaf - Scanner 1 - 120315_162343_Scanner_cm.laz</path>
       <version>1.2</version>
       <system_identifier>EXTRACTION</system_identifier>
       <generating_software>RiPROCESS 1.5.7.125</generating_software>
@@ -3527,7 +3527,7 @@
   <report>
     <file>
       <name>smerge01_c.laz</name>
-      <path>d:\lastools_dev\smerge01_c.laz</path>
+      <path>D:\lastools_dev\smerge01_c.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasclassify (110915) unlicensed</generating_software>
@@ -3563,7 +3563,7 @@
   <report>
     <file>
       <name>smerge01_h.laz</name>
-      <path>d:\lastools_dev\smerge01_h.laz</path>
+      <path>D:\lastools_dev\smerge01_h.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 110915)</generating_software>
@@ -3599,7 +3599,7 @@
   <report>
     <file>
       <name>tagum.laz</name>
-      <path>d:\lastools_dev\tagum.laz</path>
+      <path>D:\lastools_dev\tagum.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lassort (130130) commercial</generating_software>
@@ -3627,7 +3627,7 @@
   <report>
     <file>
       <name>tile_156000_246500.laz</name>
-      <path>d:\lastools_dev\tile_156000_246500.laz</path>
+      <path>D:\lastools_dev\tile_156000_246500.laz</path>
       <version>1.4</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130402) commercial</generating_software>
@@ -3695,7 +3695,7 @@
   <report>
     <file>
       <name>tile_271900_4714320.laz</name>
-      <path>d:\lastools_dev\tile_271900_4714320.laz</path>
+      <path>D:\lastools_dev\tile_271900_4714320.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) unlicensed</generating_software>
@@ -3731,7 +3731,7 @@
   <report>
     <file>
       <name>tile_272900_4714320.laz</name>
-      <path>d:\lastools_dev\tile_272900_4714320.laz</path>
+      <path>D:\lastools_dev\tile_272900_4714320.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) unlicensed</generating_software>
@@ -3767,7 +3767,7 @@
   <report>
     <file>
       <name>tile_273900_4714320.laz</name>
-      <path>d:\lastools_dev\tile_273900_4714320.laz</path>
+      <path>D:\lastools_dev\tile_273900_4714320.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) unlicensed</generating_software>
@@ -3803,7 +3803,7 @@
   <report>
     <file>
       <name>tile_274900_4714320.laz</name>
-      <path>d:\lastools_dev\tile_274900_4714320.laz</path>
+      <path>D:\lastools_dev\tile_274900_4714320.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lastile (130126) unlicensed</generating_software>
@@ -3839,7 +3839,7 @@
   <report>
     <file>
       <name>tile_611000_6545000.laz</name>
-      <path>d:\lastools_dev\tile_611000_6545000.laz</path>
+      <path>D:\lastools_dev\tile_611000_6545000.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>lasheight (120723) unlicensed</generating_software>
@@ -3871,7 +3871,7 @@
   <report>
     <file>
       <name>tiny.laz</name>
-      <path>d:\lastools_dev\tiny.laz</path>
+      <path>D:\lastools_dev\tiny.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130623)</generating_software>
@@ -3891,7 +3891,7 @@
   <report>
     <file>
       <name>transline.laz</name>
-      <path>d:\lastools_dev\transline.laz</path>
+      <path>D:\lastools_dev\transline.laz</path>
       <version>1.2</version>
       <system_identifier>NIIRS10</system_identifier>
       <generating_software>LIDAR1 tiled</generating_software>
@@ -3923,7 +3923,7 @@
   <report>
     <file>
       <name>trees.laz</name>
-      <path>d:\lastools_dev\trees.laz</path>
+      <path>D:\lastools_dev\trees.laz</path>
       <version>1.2</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130213)</generating_software>
@@ -3955,7 +3955,7 @@
   <report>
     <file>
       <name>Vaihingen_Strip_03_cm.laz</name>
-      <path>d:\lastools_dev\Vaihingen_Strip_03_cm.laz</path>
+      <path>D:\lastools_dev\Vaihingen_Strip_03_cm.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130315)</generating_software>
@@ -3979,7 +3979,7 @@
   <report>
     <file>
       <name>Vaihingen_Strip_05_cm.laz</name>
-      <path>d:\lastools_dev\Vaihingen_Strip_05_cm.laz</path>
+      <path>D:\lastools_dev\Vaihingen_Strip_05_cm.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130315)</generating_software>
@@ -4003,7 +4003,7 @@
   <report>
     <file>
       <name>Vaihingen_Strip_07_cm.laz</name>
-      <path>d:\lastools_dev\Vaihingen_Strip_07_cm.laz</path>
+      <path>D:\lastools_dev\Vaihingen_Strip_07_cm.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130315)</generating_software>
@@ -4027,7 +4027,7 @@
   <report>
     <file>
       <name>Vaihingen_Strip_09_cm.laz</name>
-      <path>d:\lastools_dev\Vaihingen_Strip_09_cm.laz</path>
+      <path>D:\lastools_dev\Vaihingen_Strip_09_cm.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130315)</generating_software>
@@ -4051,7 +4051,7 @@
   <report>
     <file>
       <name>Vaihingen_Strip_10_cm.laz</name>
-      <path>d:\lastools_dev\Vaihingen_Strip_10_cm.laz</path>
+      <path>D:\lastools_dev\Vaihingen_Strip_10_cm.laz</path>
       <version>1.0</version>
       <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
       <generating_software>las2las (version 130315)</generating_software>
@@ -4080,4 +4080,10 @@
       <fail>93</fail>
     </details>
   </total>
+  <version>
+    130928 built with LASread version 1.0 (130927)
+  </version>
+  <command_line>
+    lasvalidate -i D:\lastools_dev\*.laz -o example_report.xml 
+  </command_line>
 </LASvalidator>
