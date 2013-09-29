@@ -3,11 +3,12 @@
   <report>
     <file>
       <name>fusa.las</name>
-      <path>..\..\LASvalidator\lasvalidate\data\fusa.las</path>
-      <version_major>1</version_major>
-      <version_minor>1</version_minor>
+      <path>..\data\fusa.las</path>
+      <version>1.1</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>lasclassify (110920) unlicensed</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>UTM 54 southern hemisphere</CRS>
     </file>
     <summary>
       pass
@@ -16,11 +17,12 @@
   <report>
     <file>
       <name>lake.las</name>
-      <path>..\..\LASvalidator\lasvalidate\data\lake.las</path>
-      <version_major>1</version_major>
-      <version_minor>2</version_minor>
+      <path>..\data\lake.las</path>
+      <version>1.2</version>
+      <system_identifier>LAStools (c) by Martin Isenburg</system_identifier>
+      <generating_software>las2las (version 120505)</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>not valid or not specified</CRS>
     </file>
     <summary>
       fail
@@ -28,50 +30,52 @@
     <details>
       <fail>
         <variable>CRS</variable>
-        <note>file does not specify a Coordinate Reference System</note>
+        <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 102622 points is 0</note>
+      </warning>
     </details>
   </report>
   <report>
     <file>
       <name>test.las</name>
-      <path>..\..\LASvalidator\lasvalidate\data\test.las</path>
-      <version_major>1</version_major>
-      <version_minor>0</version_minor>
+      <path>..\data\test.las</path>
+      <version>1.0</version>
+      <system_identifier></system_identifier>
+      <generating_software>TerraScan</generating_software>
       <point_data_format>0</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>stateplane83 PA_N</CRS>
     </file>
     <summary>
       fail
     </summary>
     <details>
-      <warning>
-        <variable>system identifier</variable>
-        <note>empty string. first character is '\0'</note>
-      </warning>
       <fail>
         <variable>file creation year</variable>
         <note>should be between 1990 and 2013 and not 1</note>
       </fail>
+      <warning>
+        <variable>system identifier</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
     </details>
   </report>
   <report>
     <file>
       <name>TO_core_last_zoom.las</name>
-      <path>..\..\LASvalidator\lasvalidate\data\TO_core_last_zoom.las</path>
-      <version_major>1</version_major>
-      <version_minor>0</version_minor>
+      <path>..\data\TO_core_last_zoom.las</path>
+      <version>1.0</version>
+      <system_identifier></system_identifier>
+      <generating_software>TerraScan</generating_software>
       <point_data_format>1</point_data_format>
-      <CRS>not implemented (yet)</CRS>
+      <CRS>not valid or not specified</CRS>
     </file>
     <summary>
       fail
     </summary>
     <details>
-      <warning>
-        <variable>system identifier</variable>
-        <note>empty string. first character is '\0'</note>
-      </warning>
       <fail>
         <variable>file creation day</variable>
         <note>not set</note>
@@ -82,8 +86,16 @@
       </fail>
       <fail>
         <variable>CRS</variable>
-        <note>file does not specify a Coordinate Reference System</note>
+        <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
+      <warning>
+        <variable>system identifier</variable>
+        <note>empty string. first character is '\0'</note>
+      </warning>
+      <warning>
+        <variable>scan angle rank</variable>
+        <note>scan angle rank of all 213093 points is 0</note>
+      </warning>
     </details>
   </report>
   <total>
@@ -94,4 +106,10 @@
       <fail>3</fail>
     </details>
   </total>
+  <version>
+    130928 built with LASread version 1.0 (130927)
+  </version>
+  <command_line>
+    lasvalidate -i ..\data\*.las -o ..\data\summary.xml 
+  </command_line>
 </LASvalidator>
