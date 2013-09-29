@@ -51,6 +51,30 @@
     </summary>
     <details>
       <fail>
+        <variable>return number</variable>
+        <note>there are 663 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 128 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 7 points with a larger return number (4) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (4) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
         <variable>CRS</variable>
         <note>the 1 geokeys do not properly specify a Coordinate Reference System</note>
       </fail>
@@ -73,6 +97,30 @@
       <fail>
         <variable>global encoding</variable>
         <note>unset bit 0 suggests GPS week time but GPS time ranges from 952161409.372302 to 952162895.568419</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 663 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 128 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 7 points with a larger return number (4) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (4) than their number of returns of given pulse (3)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -111,6 +159,22 @@
         <note>unset bit 0 suggests GPS week time but GPS time ranges from 952161410.112555 to 952162892.508555</note>
       </fail>
       <fail>
+        <variable>return number</variable>
+        <note>there are 489 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 74 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 5 points with a larger return number (4) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
         <variable>CRS</variable>
         <note>the 20 geokeys do not properly specify a Coordinate Reference System</note>
       </fail>
@@ -145,6 +209,30 @@
       <fail>
         <variable>global encoding</variable>
         <note>unset bit 0 suggests GPS week time but GPS time ranges from 952161409.372302 to 952162895.568419</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 663 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 128 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 7 points with a larger return number (4) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (4) than their number of returns of given pulse (3)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -223,8 +311,14 @@
       <CRS>UTM 15 northern hemisphere</CRS>
     </file>
     <summary>
-      pass
+      fail
     </summary>
+    <details>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+    </details>
   </report>
   <report>
     <file>
@@ -247,6 +341,94 @@
       <fail>
         <variable>number of point by return</variable>
         <note>the number of 5th return(s) is 306352 and not 417442</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2599 points with a larger return number (1) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2600 points with a larger return number (2) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2601 points with a larger return number (3) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2600 points with a larger return number (4) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2600 points with a larger return number (5) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2599 points with a larger return number (6) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 2600 points with a larger return number (7) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 272 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 272 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 272 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 272 points with a larger return number (5) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 272 points with a larger return number (6) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 272 points with a larger return number (7) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 17 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 17 points with a larger return number (4) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 17 points with a larger return number (5) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 17 points with a larger return number (6) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 17 points with a larger return number (7) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (4) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (5) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (6) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 3 points with a larger return number (7) than their number of returns of given pulse (3)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -299,6 +481,94 @@
       <fail>
         <variable>number of point by return</variable>
         <note>the number of 5th return(s) is 145089 and not 200216</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1415 points with a larger return number (1) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1414 points with a larger return number (2) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1415 points with a larger return number (3) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1411 points with a larger return number (4) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1410 points with a larger return number (5) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1407 points with a larger return number (6) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1410 points with a larger return number (7) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 170 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 170 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 171 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 171 points with a larger return number (5) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 170 points with a larger return number (6) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 170 points with a larger return number (7) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 11 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 11 points with a larger return number (4) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 11 points with a larger return number (5) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 11 points with a larger return number (6) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 11 points with a larger return number (7) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (4) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (5) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (6) than their number of returns of given pulse (3)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 1 points with a larger return number (7) than their number of returns of given pulse (3)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -413,9 +683,21 @@
       <CRS>UTM 47 northern hemisphere</CRS>
     </file>
     <summary>
-      warning
+      fail
     </summary>
     <details>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 125040 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 6606 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 64 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
       <warning>
         <variable>intensity</variable>
         <note>intensity of all 3772738 points is 0</note>
@@ -437,9 +719,21 @@
       <CRS>UTM 47 northern hemisphere</CRS>
     </file>
     <summary>
-      warning
+      fail
     </summary>
     <details>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 143949 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 9545 points with a larger return number (3) than their number of returns of given pulse (1)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 196 points with a larger return number (4) than their number of returns of given pulse (1)</note>
+      </fail>
       <warning>
         <variable>intensity</variable>
         <note>intensity of all 4036528 points is 0</note>
@@ -1281,6 +1575,10 @@
         <note>not set</note>
       </fail>
       <fail>
+        <variable>bounding box</variable>
+        <note>there are 4 points outside of the bounding box specified in the LAS file header</note>
+      </fail>
+      <fail>
         <variable>min x</variable>
         <note>should be 298849.59 and not 299000.00</note>
       </fail>
@@ -1399,6 +1697,26 @@
       <fail>
         <variable>file creation year</variable>
         <note>not set</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 10 points with a larger return number (1) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 10 points with a larger return number (2) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 10 points with a larger return number (3) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 10 points with a larger return number (4) than their number of returns of given pulse (0)</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 10 points with a larger return number (5) than their number of returns of given pulse (0)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -2053,9 +2371,13 @@
       <CRS>UTM 37 northern hemisphere</CRS>
     </file>
     <summary>
-      warning
+      fail
     </summary>
     <details>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 95182 points with a larger return number (2) than their number of returns of given pulse (1)</note>
+      </fail>
       <warning>
         <variable>scan angle rank</variable>
         <note>scan angle rank of all 189389 points is 0</note>
@@ -2513,6 +2835,10 @@
       <fail>
         <variable>file creation year</variable>
         <note>not set</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 64291 points with a larger return number (3) than their number of returns of given pulse (2)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -3389,6 +3715,10 @@
         <note>not set</note>
       </fail>
       <fail>
+        <variable>return number</variable>
+        <note>there are 396251 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
@@ -3419,6 +3749,10 @@
       <fail>
         <variable>file creation year</variable>
         <note>not set</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 276532 points with a larger return number (3) than their number of returns of given pulse (2)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -3453,6 +3787,10 @@
         <note>not set</note>
       </fail>
       <fail>
+        <variable>return number</variable>
+        <note>there are 374265 points with a larger return number (3) than their number of returns of given pulse (2)</note>
+      </fail>
+      <fail>
         <variable>CRS</variable>
         <note>file does not specify a Coordinate Reference System with GEOTIFF tags</note>
       </fail>
@@ -3483,6 +3821,10 @@
       <fail>
         <variable>file creation year</variable>
         <note>not set</note>
+      </fail>
+      <fail>
+        <variable>return number</variable>
+        <note>there are 380087 points with a larger return number (3) than their number of returns of given pulse (2)</note>
       </fail>
       <fail>
         <variable>CRS</variable>
@@ -3733,9 +4075,9 @@
   <total>
     fail
     <details>
-      <pass>15</pass>
-      <warning>32</warning>
-      <fail>89</fail>
+      <pass>14</pass>
+      <warning>29</warning>
+      <fail>93</fail>
     </details>
   </total>
 </LASvalidator>

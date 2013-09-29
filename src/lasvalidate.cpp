@@ -39,9 +39,33 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
+#define VALIDATE_VERSION  130928
+
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
 #define VALIDATE_WARNING  0x0002
+
+static void write_version(XMLwriter& xmlwriter)
+{
+  CHAR version[256];
+  sprintf(version, "%d built with LASread version %d.%d (%d)", VALIDATE_VERSION, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASREAD_BUILD_DATE);
+  xmlwriter.begin("version");
+  xmlwriter.write(version);
+  xmlwriter.end("version");
+}
+
+static void write_command_line(XMLwriter& xmlwriter, int argc, char *argv[])
+{
+  int i, l = 0;
+  CHAR command_line[4096];
+  for (i = 0; i < argc; i++)
+  {
+    l += sprintf(command_line + l, "%s ", argv[i]);
+  }
+  xmlwriter.begin("command_line");
+  xmlwriter.write(command_line);
+  xmlwriter.end("command_line");
+}
 
 static void byebye(int return_code, BOOL wait=FALSE)
 {
@@ -115,27 +139,17 @@ int main(int argc, char *argv[])
     file_name[strlen(file_name)-1] = '\0';
     xml_output_file = strdup(file_name);
   }
-  else
-  {
-    if (!lasreadopener.parse(argc, argv))
-    {
-      byebye(LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX);
-    }
-  }
 
   for (i = 1; i < argc; i++)
   {
-    if (argv[i][0] == '\0')
-    {
-      continue;
-    }
-    else if (strcmp(argv[i],"-version") == 0)
+    if (strcmp(argv[i],"-version") == 0)
     {
       fprintf(stderr, "\nlasvalidate %d with LASread (v %d.%d) and LAScheck (v %d.%d) by rapidlasso GmbH\n", LASREAD_BUILD_DATE, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR);
       byebye(LAS_VALIDATE_SUCCESS);
     }
     else if (strcmp(argv[i],"-h") == 0 || strcmp(argv[i],"-help") == 0)
     {
+      lasreadopener.usage();
       usage(LAS_VALIDATE_SUCCESS);
     }
     else if (strcmp(argv[i],"-v") == 0 || strcmp(argv[i],"-verbose") == 0)
@@ -146,6 +160,54 @@ int main(int argc, char *argv[])
     {
       verbose = TRUE;
       very_verbose = TRUE;
+    }
+    else if (strcmp(argv[i],"-i") == 0)
+    {
+      if ((i+1) >= argc)
+      {
+        fprintf(stderr,"ERROR: '%s' needs at least 1 argument: file_name or wild_card\n", argv[i]);
+        usage(LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX);
+      }
+      i+=1;
+      do
+      {
+        lasreadopener.add_file_name(argv[i]);
+        i+=1;
+      } while (i < argc && *argv[i] != '-');
+      i-=1;
+    }
+    else if (strcmp(argv[i],"-stdin") == 0)
+    {
+      lasreadopener.set_piped(TRUE);
+    }
+    else if (strcmp(argv[i],"-lof") == 0)
+    {
+      if ((i+1) >= argc)
+      {
+        fprintf(stderr,"ERROR: '%s' needs 1 argument: list_of_files\n", argv[i]);
+        usage(LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX);
+      }
+      FILE* file = fopen(argv[i+1], "r");
+      if (file == 0)
+      {
+        fprintf(stderr, "ERROR: cannot open '%s'\n", argv[i+1]);
+        return FALSE;
+      }
+      char line[1024];
+      while (fgets(line, 1024, file))
+      {
+        // find end of line
+        int len = strlen(line) - 1;
+        // remove extra white spaces and line return at the end 
+        while (len > 0 && ((line[len] == '\n') || (line[len] == ' ') || (line[len] == '\t') || (line[len] == '\012')))
+        {
+          line[len] = '\0';
+          len--;
+        }
+        lasreadopener.add_file_name(line);
+      }
+      fclose(file);
+      i+=1;
     }
     else if (strcmp(argv[i],"-o") == 0)
     {
@@ -351,6 +413,14 @@ int main(int argc, char *argv[])
       num_warning = 0;
       num_fail = 0;
 
+      // write which validator was used
+
+      write_version(xmlwriter);
+
+      // write which command line was used
+
+      write_command_line(xmlwriter, argc, argv);
+
       // close the LASvalidator XML output file
 
       xmlwriter.close("LASvalidator");
@@ -382,6 +452,14 @@ int main(int argc, char *argv[])
     xmlwriter.write("fail", num_fail);
     xmlwriter.endsub("details");
     xmlwriter.end("total");
+
+    // write which validator was used
+
+    write_version(xmlwriter);
+
+    // write which command line was used
+
+    write_command_line(xmlwriter, argc, argv);
 
     // close the LASvalidator XML output file
 
