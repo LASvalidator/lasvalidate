@@ -39,7 +39,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  130928
+#define VALIDATE_VERSION  131007
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
@@ -172,6 +172,21 @@ int main(int argc, char *argv[])
       do
       {
         lasreadopener.add_file_name(argv[i]);
+        i+=1;
+      } while (i < argc && *argv[i] != '-');
+      i-=1;
+    }
+    else if (strcmp(argv[i],"-irec") == 0)
+    {
+      if ((i+1) >= argc)
+      {
+        fprintf(stderr,"ERROR: '%s' needs at least 1 argument: directory_name\n", argv[i]);
+        usage(LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX);
+      }
+      i+=1;
+      do
+      {
+        lasreadopener.add_directory(argv[i], TRUE);
         i+=1;
       } while (i < argc && *argv[i] != '-');
       i-=1;

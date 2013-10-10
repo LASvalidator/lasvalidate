@@ -119,10 +119,6 @@ SOURCE=.\crscheck.hpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\LAScheck\inc\lascheck.hpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\lascheck.hpp
 # End Source File
 # Begin Source File

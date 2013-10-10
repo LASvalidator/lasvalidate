@@ -856,14 +856,32 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
   if (lasinventory.is_active())
   {
-    if ((lasinventory.number_of_point_records > 1) && (lasinventory.min_scan_angle_rank == lasinventory.max_scan_angle_rank))
+    if (lasinventory.number_of_point_records > 1)
     {
+      if (lasheader->point_data_format < 6)
+      {
+        if (lasinventory.min_scan_angle_rank == lasinventory.max_scan_angle_rank)
+        {
 #ifdef _WIN32
-      sprintf(note, "scan angle rank of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+          sprintf(note, "scan angle rank of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
 #else
-      sprintf(note, "scan angle rank of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+          sprintf(note, "scan angle rank of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
 #endif
-      lasheader->add_warning("scan angle rank", note);
+          lasheader->add_warning("scan angle rank", note);
+        }
+      }
+      else
+      {
+        if (lasinventory.min_scan_angle == lasinventory.max_scan_angle)
+        {
+#ifdef _WIN32
+          sprintf(note, "scan angle of all %I64d points is %.3f", (I64)lasinventory.number_of_point_records, 0.006*lasinventory.min_scan_angle);
+#else
+          sprintf(note, "scan angle of all %lld points is %.3f", (I64)lasinventory.number_of_point_records, 0.006*lasinventory.min_scan_angle);
+#endif
+          lasheader->add_warning("scan angle", note);
+        }
+      }
     }
   }
 
@@ -933,7 +951,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     // an OCG WKT CRS must be there when the point type is 6 or higher
     if (lasheader->ogc_wkt == 0)
     {
-      sprintf(note, "file with point data format %d does not specify Coordinate Reference System with OGC WRT string", lasheader->point_data_format);
+      sprintf(note, "file with point data format %d does not specify Coordinate Reference System with OGC WKT string", lasheader->point_data_format);
       lasheader->add_fail("CRS", note);
     }
   }
