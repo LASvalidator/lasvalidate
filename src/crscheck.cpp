@@ -1129,6 +1129,19 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
 
   switch (value)
   {
+  case 3154: // NAD83(CSRS) / UTM zone 7N
+  case 3155: // NAD83(CSRS) / UTM zone 8N
+  case 3156: // NAD83(CSRS) / UTM zone 9N
+  case 3157: // NAD83(CSRS) / UTM zone 10N
+    utm_northern = TRUE; utm_zone = value - 3154 + 7;
+    ellipsoid_id = CRS_ELLIPSOID_NAD83;
+    break;
+  case 3158: // NAD83(CSRS) / UTM zone 14N
+  case 3159: // NAD83(CSRS) / UTM zone 15N
+  case 3160: // NAD83(CSRS) / UTM zone 16N
+    utm_northern = TRUE; utm_zone = value - 3158 + 14;
+    ellipsoid_id = CRS_ELLIPSOID_NAD83;
+    break;
   case 20137: // PCS_Adindan_UTM_zone_37N
   case 20138: // PCS_Adindan_UTM_zone_38N
     utm_northern = TRUE; utm_zone = value-20100;

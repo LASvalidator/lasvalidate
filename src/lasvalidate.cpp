@@ -39,7 +39,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  131015
+#define VALIDATE_VERSION  131025
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
@@ -124,7 +124,9 @@ int main(int argc, char *argv[])
 
   fprintf(stderr, "This is version %d of the LAS validator. Please contact\n", VALIDATE_VERSION);
   fprintf(stderr, "me at 'martin.isenburg@rapidlasso.com' if you disagree with\n");
-  fprintf(stderr, "validation reports, want additional checks, or find bugs.\n\n");
+  fprintf(stderr, "validation reports, want additional checks, or find bugs as\n");
+  fprintf(stderr, "the software is still under development. Your feedback will\n");
+  fprintf(stderr, "help to finish it sooner.\n");
 
   LASreadOpener lasreadopener;
 
