@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
   {
     if (strcmp(argv[i],"-version") == 0)
     {
-      fprintf(stderr, "\nlasvalidate %d with LASread (v %d.%d) and LAScheck (v %d.%d) by rapidlasso GmbH\n", LASREAD_BUILD_DATE, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR);
+      fprintf(stderr, "\nlasvalidate %d with LASread (v %d.%d) and LAScheck (v %d.%d) by rapidlasso GmbH\n", VALIDATE_VERSION, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR);
       byebye(LAS_VALIDATE_SUCCESS);
     }
     else if (strcmp(argv[i],"-h") == 0 || strcmp(argv[i],"-help") == 0)
