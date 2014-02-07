@@ -39,7 +39,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  131025
+#define VALIDATE_VERSION  140207
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
   {
     if (strcmp(argv[i],"-version") == 0)
     {
-      fprintf(stderr, "\nlasvalidate %d with LASread (v %d.%d) and LAScheck (v %d.%d) by rapidlasso GmbH\n", VALIDATE_VERSION, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR);
+      fprintf(stderr, "\nlasvalidate %d with LASread (v %d.%d %d) and LAScheck (v %d.%d %d) by rapidlasso GmbH\n", VALIDATE_VERSION, LASREAD_VERSION_MAJOR, LASREAD_VERSION_MINOR, LASREAD_BUILD_DATE, LASCHECK_VERSION_MAJOR, LASCHECK_VERSION_MINOR, LASCHECK_BUILD_DATE);
       byebye(LAS_VALIDATE_SUCCESS);
     }
     else if (strcmp(argv[i],"-h") == 0 || strcmp(argv[i],"-help") == 0)

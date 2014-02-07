@@ -680,6 +680,27 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     }
   }
 
+  // check for resolution fluff in the coordinates
+
+  if (lasinventory.is_active())
+  {
+    if (lasinventory.has_fluff())
+    {
+      sprintf(note, "resolution fluff (x10) in %s%s%s\012", (lasinventory.has_fluff(0) ? "X" : ""), (lasinventory.has_fluff(1) ? "Y" : ""), (lasinventory.has_fluff(2) ? "Z" : ""));
+      lasheader->add_warning("coordinate values", note);
+      if (lasinventory.has_serious_fluff())
+      {
+        sprintf(note, "serious resolution fluff (x100) in %s%s%s\012", (lasinventory.has_serious_fluff(0) ? "X" : ""), (lasinventory.has_serious_fluff(1) ? "Y" : ""), (lasinventory.has_serious_fluff(2) ? "Z" : ""));
+        lasheader->add_warning("coordinate values", note);
+        if (lasinventory.has_very_serious_fluff())
+        {
+          sprintf(note, "very serious resolution fluff (x1000) in %s%s%s\012", (lasinventory.has_very_serious_fluff(0) ? "X" : ""), (lasinventory.has_very_serious_fluff(1) ? "Y" : ""), (lasinventory.has_very_serious_fluff(2) ? "Z" : ""));
+          lasheader->add_warning("coordinate values", note);
+        }
+      }
+    }
+  }
+
   // check bounding box x y z
 
   if (points_outside_bounding_box)
