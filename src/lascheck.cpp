@@ -13,7 +13,7 @@
   
   COPYRIGHT:
   
-    (c) 2013, martin isenburg, rapidlasso - fast tools to catch reality
+    (c) 2014, martin isenburg, rapidlasso - fast tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -921,9 +921,9 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     }
   }
 
-  // check for point data formats 1 and higher in the inventory whether all GPS time stamps are identical
+  // check for point data formats 1, 3, 4, and higher in the inventory whether all GPS time stamps are identical
 
-  if (lasheader->point_data_format > 0)
+  if ((lasheader->point_data_format != 0) && (lasheader->point_data_format != 2))
   {
     if (lasinventory.is_active())
     {
