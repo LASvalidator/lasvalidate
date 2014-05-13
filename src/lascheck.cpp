@@ -687,6 +687,44 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     lasheader->add_warning("z scale factor", note);
   }
 
+  // check offset x y z
+
+  I64 x_offset_quantized = I64_QUANTIZE(lasheader->x_offset/lasheader->x_scale_factor);
+  F64 x_offset = lasheader->x_scale_factor * x_offset_quantized;
+  if (F64_NOT_CLOSE_POSITIVE(lasheader->x_offset - x_offset, 0.0, 0.0000001))
+  {
+    CHAR string1[256];
+    lidardouble2string(string1, lasheader->x_offset);
+    CHAR string2[256];
+    lidardouble2string(string2, lasheader->x_scale_factor);
+    sprintf(note, "translation fluff: decimal digits of %s do not match scale factor %s", string1, string2);
+    lasheader->add_warning("x offset", note);
+  }
+
+  I64 y_offset_quantized = I64_QUANTIZE(lasheader->y_offset/lasheader->y_scale_factor);
+  F64 y_offset = lasheader->y_scale_factor * y_offset_quantized;
+  if (F64_NOT_CLOSE_POSITIVE(lasheader->y_offset - y_offset, 0.0, 0.0000001))
+  {
+    CHAR string1[256];
+    lidardouble2string(string1, lasheader->y_offset);
+    CHAR string2[256];
+    lidardouble2string(string2, lasheader->y_scale_factor);
+    sprintf(note, "translation fluff: decimal digits of %s do not match scale factor %s", string1, string2);
+    lasheader->add_warning("y offset", note);
+  }
+
+  I64 z_offset_quantized = I64_QUANTIZE(lasheader->z_offset/lasheader->z_scale_factor);
+  F64 z_offset = lasheader->z_scale_factor * z_offset_quantized;
+  if (F64_NOT_CLOSE_POSITIVE(lasheader->z_offset - z_offset, 0.0, 0.0000001))
+  {
+    CHAR string1[256];
+    lidardouble2string(string1, lasheader->z_offset);
+    CHAR string2[256];
+    lidardouble2string(string2, lasheader->z_scale_factor);
+    sprintf(note, "translation fluff: decimal digits of %s do not match scale factor %s", string1, string2);
+    lasheader->add_warning("z offset", note);
+  }
+
   // check global encoding 
 
   if ((lasheader->version_major == 1) && (lasheader->version_minor >= 3))
