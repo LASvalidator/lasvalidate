@@ -2833,6 +2833,12 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
     if (description) sprintf(description, "Belge 1972 / Belgian Lambert 72");
     return TRUE;
   }
+  else if (value)
+  {
+//    set_unknown_projection();
+    if (description) sprintf(description, "unknown (rare?) projection with EPSG code %d. CRS check not yet implemented. please email a lasinfo.exe report of this LAS/LAZ file to 'lasvalidate@rapidlasso.com' and request to have this projection added to the lasvalidate.exe check.", (I32)value);
+    return TRUE;
+  }
   fprintf(stderr, "CRScheck::set_projection_from_ProjectedCSTypeGeoKey: %d not implemented\n", value);
   return FALSE;
 }
