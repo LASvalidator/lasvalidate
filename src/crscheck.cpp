@@ -2836,7 +2836,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value)
   {
 //    set_unknown_projection();
-    if (description) sprintf(description, "unknown (rare?) projection with EPSG code %d. CRS check not yet implemented. please email a lasinfo.exe report of this LAS/LAZ file to 'lasvalidate@rapidlasso.com' and request to have this projection added to the lasvalidate.exe check.", (I32)value);
+    if (description) sprintf(description, "unknown or rare projection with EPSG code %d. CRS check not yet implemented. please email this particular LAS/LAZ file (or at least a lasinfo report of it) to 'lasvalidator@rapidlasso.com' to have this projection added to the CRS check.", (I32)value);
     return TRUE;
   }
   fprintf(stderr, "CRScheck::set_projection_from_ProjectedCSTypeGeoKey: %d not implemented\n", value);
