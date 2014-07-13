@@ -1119,8 +1119,10 @@ BOOL CRScheck::set_elevation_from_VerticalUnitsGeoKey(U16 value)
   return TRUE;
 }
 
+static const short EPSG_IRENET95_Irish_Transverse_Mercator = 2157;
 static const short EPSG_ETRS89_Poland_CS92 = 2180;
 static const short EPSG_NZGD2000 = 2193;
+static const short EPSG_NAD83_Maryland_ftUS = 2248;
 static const short EPSG_NAD83_HARN_UTM2_South_American_Samoa = 2195;
 static const short EPSG_NAD83_HARN_Virginia_North_ftUS = 2924;
 static const short EPSG_NAD83_HARN_Virginia_South_ftUS = 2925;
@@ -2648,7 +2650,15 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
     }
   }
 
-  if (value == EPSG_ETRS89_Poland_CS92)
+  if (value == EPSG_IRENET95_Irish_Transverse_Mercator)
+  {
+    set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
+    set_transverse_mercator_projection(600000.0, 750000.0, 53.5, -8.0, 0.99982, 0); // "IRENET95 / Irish Transverse Mercator"
+    set_coordinates_in_meter(TRUE);
+    if (description) sprintf(description, "IRENET95 / Irish Transverse Mercator");
+    return TRUE;
+  }
+  else if (value == EPSG_ETRS89_Poland_CS92)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
     set_transverse_mercator_projection(500000.0, -5300000.0, 0.0, 19.0, 0.9993, 0); // "ETRS89 / Poland CS92"
@@ -2664,6 +2674,14 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
     if (description) sprintf(description, "NZGD2000");
     return TRUE;
   }
+  else if (value == EPSG_NAD83_Maryland_ftUS)
+  {
+    set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 37.66666666666666, -77, 37.66666666666666, 38.3, 0); // "NAD83 / Maryland (ftUS)"
+    set_coordinates_in_survey_feet(TRUE);
+    if (description) sprintf(description, "NAD83 / Maryland (ftUS)");
+    return TRUE;
+  }
   else if (value == EPSG_NAD83_HARN_UTM2_South_American_Samoa)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
@@ -2675,7 +2693,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_HARN_Virginia_North_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(11482916.667, 6561666.667, 37.66666666666666, -78.5, 39.2, 38.03333333333333, 0); // "NAD83(HARN) / Virginia North (ftUS)"
+    set_lambert_conformal_conic_projection(3500000.0, 2000000.0, 37.66666666666666, -78.5, 39.2, 38.03333333333333, 0); // "NAD83(HARN) / Virginia North (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(HARN) / Virginia North (ftUS)");
     return TRUE;
@@ -2683,7 +2701,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_HARN_Virginia_South_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(11482916.667, 3280833.333, 36.33333333333334, -78.5, 37.96666666666667, 36.76666666666667, 0); // "NAD83(HARN) / Virginia South (ftUS)"
+    set_lambert_conformal_conic_projection(3500000.0, 1000000.0, 36.33333333333334, -78.5, 37.96666666666667, 36.76666666666667, 0); // "NAD83(HARN) / Virginia South (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(HARN) / Virginia South (ftUS)");
     return TRUE;
@@ -2750,10 +2768,10 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
     if (description) sprintf(description, "Fiji 1986 / Fiji Map Grid");
     return TRUE;
   }
-  else if (value == EPSG_Slovene_National_Grid_1996)
+  else if (value == EPSG_NAD83_NSRS2007_Maryland_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(1312333.333 * surveyfeet2meter, 0.0 * surveyfeet2meter, 37.66666666666666, -77, 39.45, 38.3, 0); // "NAD83(NSRS2007) / Maryland (ftUS)"
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 37.66666666666666, -77, 39.45, 38.3, 0); // "NAD83(NSRS2007) / Maryland (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(NSRS2007) / Maryland (ftUS)");
     return TRUE;
