@@ -1126,6 +1126,10 @@ static const short EPSG_NAD83_Maryland_ftUS = 2248;
 static const short EPSG_NAD83_HARN_UTM2_South_American_Samoa = 2195;
 static const short EPSG_NAD83_HARN_Virginia_North_ftUS = 2924;
 static const short EPSG_NAD83_HARN_Virginia_South_ftUS = 2925;
+static const short EPSG_Reseau_Geodesique_Francais_Guyane_1995 = 2972;
+static const short EPSG_NAD83_Oregon_Lambert = 2991;
+static const short EPSG_NAD83_Oregon_Lambert_ft = 2992;
+static const short EPSG_SWEREF99_TM = 3006;
 static const short EPSG_ETRS89_ETRS_LCC = 3034;
 static const short EPSG_ETRS89_ETRS_TM34 = 3046;
 static const short EPSG_ETRS89_ETRS_TM35 = 3047;
@@ -2705,6 +2709,38 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(HARN) / Virginia South (ftUS)");
     return TRUE;
+  }
+  else if (EPSG_Reseau_Geodesique_Francais_Guyane_1995)
+  {
+    set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, -51.0, 0.9996, 0); // "Reseau Geodesique Francais Guyane 1995"
+    set_coordinates_in_meter(TRUE);
+    if (description) sprintf(description, "Reseau Geodesique Francais Guyane 1995");
+    return true;
+  }
+  else if (value == EPSG_NAD83_Oregon_Lambert)
+  {
+    set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 41.75, -120.5, 43.0, 45.5, 0); // "NAD83 / Oregon Lambert"
+    set_coordinates_in_meter(TRUE);
+    if (description) sprintf(description, "NAD83 / Oregon Lambert");
+    return true;
+  }
+  else if (value == EPSG_NAD83_Oregon_Lambert_ft)
+  {
+    set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 41.75, -120.5, 43.0, 45.5, 0); // "NAD83 / Oregon Lambert (ft)"
+    set_coordinates_in_feet(TRUE);
+    if (description) sprintf(description, "NAD83 / Oregon Lambert (ft)");
+    return true;
+  }
+  else if (value == EPSG_SWEREF99_TM)
+  {
+    set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 15.0, 0.9996, 0); // "SWEREF99 TM"
+    set_coordinates_in_meter(TRUE);
+    if (description) sprintf(description, "SWEREF99 TM");
+    return true;
   }
   else if (value == EPSG_ETRS89_ETRS_LCC)
   {
