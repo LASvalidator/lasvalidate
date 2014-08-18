@@ -2832,14 +2832,14 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_Fiji_1956_UTM60_South)
   {
     set_ellipsoid(CRS_ELLIPSOID_Inter, TRUE);
-    set_utm_projection(60, TRUE, 0); // "Fiji 1956 / UTM zone 60S"
+    set_utm_projection(60, FALSE, TRUE, 0); // "Fiji 1956 / UTM zone 60S"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Fiji 1956 / UTM zone 60S");
   }
   else if (value == EPSG_Fiji_1956_UTM1_South)
   {
     set_ellipsoid(CRS_ELLIPSOID_Inter, TRUE);
-    set_utm_projection(1, TRUE, 0); // "Fiji 1956 / UTM zone 1S"
+    set_utm_projection(1, FALSE, TRUE, 0); // "Fiji 1956 / UTM zone 1S"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Fiji 1956 / UTM zone 1S");
   }
