@@ -50,6 +50,7 @@ static const int CRS_PROJECTION_LCC      = 1;
 static const int CRS_PROJECTION_TM       = 2;
 static const int CRS_PROJECTION_LONG_LAT = 3;
 static const int CRS_PROJECTION_LAT_LONG = 4;
+static const int CRS_PROJECTION_ECEF     = 5;
 
 #define CRS_ELLIPSOID_NAD27 5
 #define CRS_ELLIPSOID_NAD83 11
@@ -58,7 +59,7 @@ static const int CRS_PROJECTION_LAT_LONG = 4;
 #define CRS_ELLIPSOID_WGS72 22
 #define CRS_ELLIPSOID_WGS84 23
 #define CRS_ELLIPSOID_ID74  24
-#define CRS_ELLIPSOID_GDA94 CRS_ELLIPSOID_WGS84
+#define CRS_ELLIPSOID_GDA94 CRS_ELLIPSOID_NAD83
 
 #define CRS_VERTICAL_WGS84   5030
 #define CRS_VERTICAL_NAVD29  5102
@@ -96,7 +97,7 @@ static const ReferenceEllipsoid ellipsoid_list[] =
   ReferenceEllipsoid( 8, "Fischer 1960 (Mercury) ", 6378166, 0.006693422, 298.3),
   ReferenceEllipsoid( 9, "Fischer 1968", 6378150, 0.006693422, 298.3),
   ReferenceEllipsoid( 10, "GRS 1967", 6378160, 0.006694605, 298.247167427),
-  ReferenceEllipsoid( 11, "GRS 1980 (NAD-83)", 6378137, 0.00669438002290, 298.257222101),
+  ReferenceEllipsoid( 11, "GRS 1980 (NAD-83,GDA-94)", 6378137, 0.00669438002290, 298.257222101),
   ReferenceEllipsoid( 12, "Helmert 1906", 6378200, 0.006693422, 298.3),
   ReferenceEllipsoid( 13, "Hough", 6378270, 0.00672267, 297.0),
   ReferenceEllipsoid( 14, "International", 6378388, 0.00672267, 297.0),
@@ -110,6 +111,7 @@ static const ReferenceEllipsoid ellipsoid_list[] =
   ReferenceEllipsoid( 22, "WGS-72", 6378135, 0.006694318, 298.26),
   ReferenceEllipsoid( 23, "WGS-84", 6378137, 0.00669437999013, 298.257223563),
   ReferenceEllipsoid( 24, "Indonesian National 1974", 6378160, 0.0066946091071419115, 298.2469988070381)
+  ,
 };
 
 static const int PCS_NAD27_Alabama_East = 26729;
@@ -854,6 +856,19 @@ BOOL CRScheck::set_longlat_projection(const BOOL from_geokeys, CHAR* description
   return TRUE;
 }
 
+BOOL CRScheck::set_ecef_projection(const BOOL from_geokeys, CHAR* description)
+{
+  CRSprojectionParameters* ecef = new CRSprojectionParameters();
+  ecef->type = CRS_PROJECTION_ECEF;
+  sprintf(ecef->name, "ECEF");
+  set_projection(ecef, from_geokeys);
+  if (description)
+  {
+    sprintf(description, "%s", ecef->name);
+  }
+  return TRUE;
+}
+
 BOOL CRScheck::set_utm_projection(const CHAR* zone, const BOOL from_geokeys, CHAR* description)
 {
   I32 zone_number;
@@ -906,6 +921,27 @@ BOOL CRScheck::set_utm_projection(const I32 zone_number, const BOOL northern, co
   if (description)
   {
     sprintf(description, "UTM %d %s", zone_number, (utm->utm_northern_hemisphere ? "northern hemisphere" : "southern hemisphere"));
+  }
+  return TRUE;
+}
+
+BOOL CRScheck::set_mga_projection(const I32 zone_number, const BOOL northern, const BOOL from_geokeys, CHAR* description)
+{
+  if ((zone_number < 0) || (zone_number > 60))
+  {
+    return FALSE;
+  }
+  CRSprojectionParametersUTM* utm = new CRSprojectionParametersUTM();
+  utm->type = CRS_PROJECTION_UTM;
+  utm->utm_zone_number = zone_number;
+  utm->utm_zone_letter = ' ';
+  utm->utm_northern_hemisphere = northern;
+  sprintf(utm->name, "MGA zone %d (%s)", zone_number, (utm->utm_northern_hemisphere ? "northern hemisphere" : "southern hemisphere"));
+  utm->utm_long_origin = (zone_number - 1) * 6 - 180 + 3;  // + 3 puts origin in middle of zone
+  set_projection(utm, from_geokeys);
+  if (description)
+  {
+    sprintf(description, "MGA %d %s", zone_number, (utm->utm_northern_hemisphere ? "northern hemisphere" : "southern hemisphere"));
   }
   return TRUE;
 }
@@ -1190,6 +1226,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   I32 ellipsoid_id = -1;
   BOOL utm_northern = FALSE;
   I32 utm_zone = -1;
+  BOOL is_mga = FALSE;
   CHAR* sp = 0;
   BOOL sp_nad27 = FALSE;
 
@@ -1838,7 +1875,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   case 28356: // PCS_GDA94_MGA_zone_56
   case 28357: // PCS_GDA94_MGA_zone_57
   case 28358: // PCS_GDA94_MGA_zone_58
-    utm_northern = FALSE; utm_zone = value-28300;
+    utm_northern = FALSE; utm_zone = value-28300; is_mga = TRUE;
     ellipsoid_id = CRS_ELLIPSOID_GDA94;
     break;
   case 29118: // PCS_SAD69_UTM_zone_18N
@@ -2622,9 +2659,19 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
 
   if (utm_zone != -1)
   {
-    if (set_utm_projection(utm_zone, utm_northern, TRUE, description))
+    if (is_mga)
     {
-      return TRUE;
+      if (set_mga_projection(utm_zone, utm_northern, TRUE, description))
+      {
+        return TRUE;
+      }
+    }
+    else
+    {
+      if (set_utm_projection(utm_zone, utm_northern, TRUE, description))
+      {
+        return TRUE;
+      }
     }
   }
 
@@ -2657,7 +2704,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   if (value == EPSG_IRENET95_Irish_Transverse_Mercator)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(600000.0, 750000.0, 53.5, -8.0, 0.99982, 0); // "IRENET95 / Irish Transverse Mercator"
+    set_transverse_mercator_projection(600000.0, 750000.0, 53.5, -8.0, 0.99982, TRUE, 0); // "IRENET95 / Irish Transverse Mercator"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "IRENET95 / Irish Transverse Mercator");
     return TRUE;
@@ -2665,7 +2712,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_Poland_CS92)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, -5300000.0, 0.0, 19.0, 0.9993, 0); // "ETRS89 / Poland CS92"
+    set_transverse_mercator_projection(500000.0, -5300000.0, 0.0, 19.0, 0.9993, TRUE, 0); // "ETRS89 / Poland CS92"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / Poland CS92");
     return TRUE;
@@ -2673,7 +2720,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NZGD2000)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(1600000.0, 10000000.0, 0.0, 173.0, 0.9996, 0); // "NZGD2000 / New Zealand Transverse Mercator 2000"
+    set_transverse_mercator_projection(1600000.0, 10000000.0, 0.0, 173.0, 0.9996, TRUE, 0); // "NZGD2000 / New Zealand Transverse Mercator 2000"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "NZGD2000");
     return TRUE;
@@ -2681,7 +2728,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_Maryland_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(400000.0, 0.0, 37.66666666666666, -77, 37.66666666666666, 38.3, 0); // "NAD83 / Maryland (ftUS)"
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 37.66666666666666, -77, 37.66666666666666, 38.3, TRUE, 0); // "NAD83 / Maryland (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83 / Maryland (ftUS)");
     return TRUE;
@@ -2689,7 +2736,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_HARN_UTM2_South_American_Samoa)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 10000000.0, 0.0, -171.0, 0.9996, 0); // "NAD83(HARN) / UTM zone 2S (American Samoa)"
+    set_transverse_mercator_projection(500000.0, 10000000.0, 0.0, -171.0, 0.9996, TRUE, 0); // "NAD83(HARN) / UTM zone 2S (American Samoa)"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "UTM zone 2S (American Samoa)");
     return TRUE;
@@ -2697,7 +2744,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_HARN_Virginia_North_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(3500000.0, 2000000.0, 37.66666666666666, -78.5, 39.2, 38.03333333333333, 0); // "NAD83(HARN) / Virginia North (ftUS)"
+    set_lambert_conformal_conic_projection(3500000.0, 2000000.0, 37.66666666666666, -78.5, 39.2, 38.03333333333333, TRUE, 0); // "NAD83(HARN) / Virginia North (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(HARN) / Virginia North (ftUS)");
     return TRUE;
@@ -2705,47 +2752,47 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_HARN_Virginia_South_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(3500000.0, 1000000.0, 36.33333333333334, -78.5, 37.96666666666667, 36.76666666666667, 0); // "NAD83(HARN) / Virginia South (ftUS)"
+    set_lambert_conformal_conic_projection(3500000.0, 1000000.0, 36.33333333333334, -78.5, 37.96666666666667, 36.76666666666667, TRUE, 0); // "NAD83(HARN) / Virginia South (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(HARN) / Virginia South (ftUS)");
     return TRUE;
   }
-  else if (EPSG_Reseau_Geodesique_Francais_Guyane_1995)
+  else if (value == EPSG_Reseau_Geodesique_Francais_Guyane_1995)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 0.0, 0.0, -51.0, 0.9996, 0); // "Reseau Geodesique Francais Guyane 1995"
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, -51.0, 0.9996, TRUE, 0); // "Reseau Geodesique Francais Guyane 1995"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Reseau Geodesique Francais Guyane 1995");
-    return true;
+    return TRUE;
   }
   else if (value == EPSG_NAD83_Oregon_Lambert)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(400000.0, 0.0, 41.75, -120.5, 43.0, 45.5, 0); // "NAD83 / Oregon Lambert"
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 41.75, -120.5, 43.0, 45.5, TRUE, 0); // "NAD83 / Oregon Lambert"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "NAD83 / Oregon Lambert");
-    return true;
+    return TRUE;
   }
   else if (value == EPSG_NAD83_Oregon_Lambert_ft)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(400000.0, 0.0, 41.75, -120.5, 43.0, 45.5, 0); // "NAD83 / Oregon Lambert (ft)"
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 41.75, -120.5, 43.0, 45.5, TRUE, 0); // "NAD83 / Oregon Lambert (ft)"
     set_coordinates_in_feet(TRUE);
     if (description) sprintf(description, "NAD83 / Oregon Lambert (ft)");
-    return true;
+    return TRUE;
   }
   else if (value == EPSG_SWEREF99_TM)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 15.0, 0.9996, 0); // "SWEREF99 TM"
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 15.0, 0.9996, TRUE, 0); // "SWEREF99 TM"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "SWEREF99 TM");
-    return true;
+    return TRUE;
   }
   else if (value == EPSG_ETRS89_ETRS_LCC)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(4000000.0, 2800000.0, 52.0, 10.0, 35.0, 65.0, 0); // "ETRS89 / ETRS-LCC"
+    set_lambert_conformal_conic_projection(4000000.0, 2800000.0, 52.0, 10.0, 35.0, 65.0, TRUE, 0); // "ETRS89 / ETRS-LCC"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / ETRS-LCC");
     return TRUE;
@@ -2753,7 +2800,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_ETRS_TM34)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 21.0, 0.9996, 0); // "ETRS89 / ETRS-TM34"
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 21.0, 0.9996, TRUE, 0); // "ETRS89 / ETRS-TM34"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / ETRS-TM34");
     return TRUE;
@@ -2761,7 +2808,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_ETRS_TM35)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 27.0, 0.9996, 0); // "ETRS89 / ETRS-TM35"
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 27.0, 0.9996, TRUE, 0); // "ETRS89 / ETRS-TM35"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / ETRS-TM35");
     return TRUE;
@@ -2769,7 +2816,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_ETRS_TM36)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 33.0, 0.9996, 0); // "ETRS89 / ETRS-TM36"
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 33.0, 0.9996, TRUE, 0); // "ETRS89 / ETRS-TM36"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / ETRS-TM36");
     return TRUE;
@@ -2777,7 +2824,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_ETRS_TM35FIN)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 27.0, 0.9996, 0); // "ETRS89 / ETRS-TM35FIN"
+    set_transverse_mercator_projection(500000.0, 0.0, 0.0, 27.0, 0.9996, TRUE, 0); // "ETRS89 / ETRS-TM35FIN"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / ETRS-TM35FIN");
     return TRUE;
@@ -2785,21 +2832,21 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_Fiji_1956_UTM60_South)
   {
     set_ellipsoid(CRS_ELLIPSOID_Inter, TRUE);
-    set_utm_projection(60, false, 0); // "Fiji 1956 / UTM zone 60S"
+    set_utm_projection(60, TRUE, 0); // "Fiji 1956 / UTM zone 60S"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Fiji 1956 / UTM zone 60S");
   }
   else if (value == EPSG_Fiji_1956_UTM1_South)
   {
     set_ellipsoid(CRS_ELLIPSOID_Inter, TRUE);
-    set_utm_projection(1, false, 0); // "Fiji 1956 / UTM zone 1S"
+    set_utm_projection(1, TRUE, 0); // "Fiji 1956 / UTM zone 1S"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Fiji 1956 / UTM zone 1S");
   }
   else if (value == EPSG_Fiji_Map_Grid_1986)
   {
     set_ellipsoid(CRS_ELLIPSOID_WGS72, TRUE);
-    set_transverse_mercator_projection(2000000.0, 4000000.0, -17.0, 178.75, 0.99985, 0); // "Fiji 1986 / Fiji Map Grid"
+    set_transverse_mercator_projection(2000000.0, 4000000.0, -17.0, 178.75, 0.99985, TRUE, 0); // "Fiji 1986 / Fiji Map Grid"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Fiji 1986 / Fiji Map Grid");
     return TRUE;
@@ -2807,7 +2854,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_NAD83_NSRS2007_Maryland_ftUS)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(400000.0, 0.0, 37.66666666666666, -77, 39.45, 38.3, 0); // "NAD83(NSRS2007) / Maryland (ftUS)"
+    set_lambert_conformal_conic_projection(400000.0, 0.0, 37.66666666666666, -77, 39.45, 38.3, TRUE, 0); // "NAD83(NSRS2007) / Maryland (ftUS)"
     set_coordinates_in_survey_feet(TRUE);
     if (description) sprintf(description, "NAD83(NSRS2007) / Maryland (ftUS)");
     return TRUE;
@@ -2815,7 +2862,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_Slovene_National_Grid_1996)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(500000.0, -5000000.0, 0.0, 15.0, 0.9999, 0); // "Slovenia 1996 / Slovene National Grid"
+    set_transverse_mercator_projection(500000.0, -5000000.0, 0.0, 15.0, 0.9999, TRUE, 0); // "Slovenia 1996 / Slovene National Grid"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Slovenia 1996 / Slovene National Grid");
     return TRUE;
@@ -2823,7 +2870,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_MGI_1901_Slovene_National_Grid)
   {
     set_ellipsoid(3, TRUE); // Bessel 1841
-    set_transverse_mercator_projection(500000.0, -5000000.0, 0.0, 15.0, 0.9999, 0); // "MGI 1901 / Slovene National Grid"
+    set_transverse_mercator_projection(500000.0, -5000000.0, 0.0, 15.0, 0.9999, TRUE, 0); // "MGI 1901 / Slovene National Grid"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "MGI 1901 / Slovene National Grid");
     return TRUE;    
@@ -2832,7 +2879,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   {
     int v = value - EPSG_RGF93_CC42;
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_lambert_conformal_conic_projection(1700000.0, 1200000.0+v*1000000, 42.0+v, 3.0, 41.25+v, 42.75+v, 0);
+    set_lambert_conformal_conic_projection(1700000.0, 1200000.0+v*1000000, 42.0+v, 3.0, 41.25+v, 42.75+v, TRUE, 0);
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "RGF93 / CC%d Reseau_Geodesique_Francais_1993", value-3900);
     return TRUE;
@@ -2841,7 +2888,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   {
     int v = ((value - EPSG_ETRS89_DKTM1)%4) + 1;
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(200000.0*v, -5000000.0, 0.0, 9.0 + (v == 1 ? 0.0 : (v == 2 ? 1.0 : (v == 3 ? 2.75 : 6.0))), 0.99998, 0);
+    set_transverse_mercator_projection(200000.0*v, -5000000.0, 0.0, 9.0 + (v == 1 ? 0.0 : (v == 2 ? 1.0 : (v == 3 ? 2.75 : 6.0))), 0.99998, TRUE, 0);
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / DKTM%d", v);
     return TRUE;
@@ -2849,7 +2896,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_UTM32_north_zE_N)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(32500000.0, 0.0, 0.0, 9.0, 0.9996, 0); // "ETRS89 / UTM zone 32N (zE-N)"
+    set_transverse_mercator_projection(32500000.0, 0.0, 0.0, 9.0, 0.9996, TRUE, 0); // "ETRS89 / UTM zone 32N (zE-N)"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / UTM zone 32N (zE-N)");
     return TRUE;
@@ -2858,7 +2905,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   {
     int v = value - 5100;
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(100000.0, 1000000.0, 58.0, 0.3+v, 1.0, 0);
+    set_transverse_mercator_projection(100000.0, 1000000.0, 58.0, 0.3+v, 1.0, TRUE, 0);
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / NTM zone %d", v);
     return TRUE;
@@ -2866,7 +2913,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_ETRS89_UTM33_north_zE_N)
   {
     set_ellipsoid(CRS_ELLIPSOID_NAD83, TRUE); // GRS 1980
-    set_transverse_mercator_projection(33500000.0, 0.0, 0.0, 15.0, 0.9996, 0); // "ETRS89 / UTM zone 33N (zE-N)"
+    set_transverse_mercator_projection(33500000.0, 0.0, 0.0, 15.0, 0.9996, TRUE, 0); // "ETRS89 / UTM zone 33N (zE-N)"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "ETRS89 / UTM zone 33N (zE-N)");
     return TRUE;
@@ -2874,7 +2921,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_OSGB_1936)
   {
     set_ellipsoid(1, TRUE); // Airy 1830
-    set_transverse_mercator_projection(400000.0, -100000.0, 49.0, -2.0, 0.9996012717, 0); // "OSGB 1936 / British National Grid"
+    set_transverse_mercator_projection(400000.0, -100000.0, 49.0, -2.0, 0.9996012717, TRUE, 0); // "OSGB 1936 / British National Grid"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "OSGB 1936 / British National Grid");
     return TRUE;
@@ -2882,7 +2929,7 @@ BOOL CRScheck::set_projection_from_ProjectedCSTypeGeoKey(const U16 value, CHAR* 
   else if (value == EPSG_Belgian_Lambert_1972)
   {
     set_ellipsoid(CRS_ELLIPSOID_Inter, TRUE);
-    set_lambert_conformal_conic_projection(150000.013, 5400088.438, 90, 4.367486666666666, 51.16666723333333, 49.8333339, 0); // "Belge 1972 / Belgian Lambert 72"
+    set_lambert_conformal_conic_projection(150000.013, 5400088.438, 90, 4.367486666666666, 51.16666723333333, 49.8333339, TRUE, 0); // "Belge 1972 / Belgian Lambert 72"
     set_coordinates_in_meter(TRUE);
     if (description) sprintf(description, "Belge 1972 / Belgian Lambert 72");
     return TRUE;
@@ -2923,6 +2970,10 @@ BOOL CRScheck::check_geokeys(LASheader* lasheader, CHAR* description)
       if (geokey_entries[i].value_offset == 2) // ModelTypeGeographic
       {
         has_projection = set_longlat_projection(TRUE, description);
+      }
+      else if (geokey_entries[i].value_offset == 3) // ModelTypeGeocentric
+      {
+        has_projection = set_ecef_projection(TRUE, description);
       }
       break;
     case 2048: // GeographicTypeGeoKey
@@ -2989,6 +3040,9 @@ BOOL CRScheck::check_geokeys(LASheader* lasheader, CHAR* description)
       case 4269: // GCS_NAD83
         ellipsoid = CRS_ELLIPSOID_NAD83;
         break;
+      case 4283: // GCS_GDA94
+        ellipsoid = CRS_ELLIPSOID_GDA94;
+        break;
       case 4322: // GCS_WGS_72
         ellipsoid = CRS_ELLIPSOID_WGS72;
         break;
@@ -3014,6 +3068,9 @@ BOOL CRScheck::check_geokeys(LASheader* lasheader, CHAR* description)
         break;
       case 6269: // Datum_North_American_Datum_1983
         ellipsoid = CRS_ELLIPSOID_NAD83;
+        break;
+      case 6283: // Datum_Geocentric_Datum_of_Australia_1994
+        ellipsoid = CRS_ELLIPSOID_GDA94;
         break;
       case 6322: // Datum_WGS72
         ellipsoid = CRS_ELLIPSOID_WGS72;

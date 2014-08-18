@@ -126,8 +126,10 @@ private:
   void set_projection(CRSprojectionParameters* projection, const BOOL from_geokeys);
   BOOL set_latlong_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_longlat_projection(const BOOL from_geokeys, CHAR* description=0);
+  BOOL set_ecef_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_utm_projection(const CHAR* zone, const BOOL from_geokeys, CHAR* description=0);
-  BOOL set_utm_projection(const I32 zone, const BOOL northern, const BOOL from_geokeys, CHAR* description=0);
+  BOOL set_utm_projection(const I32 zone, const BOOL northern, const const BOOL from_geokeys, CHAR* description=0);
+  BOOL set_mga_projection(const I32 zone, const BOOL northern, const const BOOL from_geokeys, CHAR* description=0);
   void set_lambert_conformal_conic_projection(const F64 falseEasting, const F64 falseNorthing, const F64 latOriginDegree, const F64 longMeridianDegree, const F64 firstStdParallelDegree, const F64 secondStdParallelDegree, const BOOL from_geokeys, CHAR* description=0);
   void set_transverse_mercator_projection(const F64 falseEasting, const F64 falseNorthing, const F64 latOriginDegree, const F64 longMeridianDegree, const F64 scaleFactor, const BOOL from_geokeys, CHAR* description=0);
   BOOL set_state_plane_nad27_lcc(const CHAR* zone, const BOOL from_geokeys, CHAR* description=0);

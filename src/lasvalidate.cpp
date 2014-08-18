@@ -39,7 +39,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  140810
+#define VALIDATE_VERSION  140818
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
