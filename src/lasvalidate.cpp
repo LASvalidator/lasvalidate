@@ -487,7 +487,7 @@ int main(int argc, char *argv[])
 
   if (verbose && (lasreadopener.get_file_name_number() > 1))
   {
-    fprintf(stderr,"done. total time %.2f sec. total %s (pass=%d,warning=%d,fail=%f)\n", taketime()-full_start_time, (total_pass == 0 ? "pass" : ((total_pass & 1) ? "fail" : "warning")), num_pass, num_warning, num_fail);
+    fprintf(stderr,"done. total time %.2f sec. total %s (pass=%d,warning=%d,fail=%d)\n", taketime()-full_start_time, (total_pass == 0 ? "pass" : ((total_pass & 1) ? "fail" : "warning")), num_pass, num_warning, num_fail);
   }
 
   byebye(argc==1);
