@@ -39,7 +39,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  140818
+#define VALIDATE_VERSION  140911
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
@@ -450,7 +450,7 @@ int main(int argc, char *argv[])
 
     if (very_verbose)
     {
-      fprintf(stderr,"needed %.2f sec for '%s'\n", taketime()-start_time, lasreadopener.get_file_name());
+      fprintf(stderr,"needed %.2f sec for '%s' %s\n", taketime()-start_time, lasreadopener.get_file_name(), (pass == VALIDATE_PASS ? "pass" : ((pass & VALIDATE_FAIL) ? "fail" : "warning")));
       start_time = taketime();
     }
   }
@@ -487,7 +487,7 @@ int main(int argc, char *argv[])
 
   if (verbose && (lasreadopener.get_file_name_number() > 1))
   {
-    fprintf(stderr,"done. total time %.2f sec.\n", taketime()-full_start_time);
+    fprintf(stderr,"done. total time %.2f sec. total %s (pass=%d,warning=%d,fail=%f)\n", taketime()-full_start_time, (total_pass == 0 ? "pass" : ((total_pass & 1) ? "fail" : "warning")), num_pass, num_warning, num_fail);
   }
 
   byebye(argc==1);
