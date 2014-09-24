@@ -971,12 +971,27 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
 
   if (lasinventory.is_active())
   {
-    if ((lasheader->file_source_id == 0) && (lasinventory.number_of_point_records > 1) && (lasinventory.min_point_source_ID == 0) && (lasinventory.max_point_source_ID))
+    if ((lasheader->file_source_ID == 0) && (lasinventory.number_of_point_records > 1) && (lasinventory.min_point_source_ID == 0) && (lasinventory.max_point_source_ID == 0))
     {
 #ifdef _WIN32
-      sprintf(note, "file source ID of header and point source ID of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+      sprintf(note, "file source ID in header and point source ID of all %I64d points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_point_source_ID);
 #else
-      sprintf(note, "file source ID of header and point source ID of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_scan_angle_rank);
+      sprintf(note, "file source ID in header and point source ID of all %lld points is %d", (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_point_source_ID);
+#endif
+      lasheader->add_warning("point source ID", note);
+    }
+  }
+
+  // check for file source ID and point source IDs disagreement
+
+  if (lasinventory.is_active())
+  {
+    if ((lasheader->file_source_ID != 0) && (lasinventory.number_of_point_records > 1) && ((lasheader->file_source_ID != lasinventory.min_point_source_ID) || (lasheader->file_source_ID != lasinventory.max_point_source_ID)))
+    {
+#ifdef _WIN32
+      sprintf(note, "file source ID in header is %d but point source IDs of all %I64d points range from %d to %d", (I32)lasheader->file_source_ID, (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_point_source_ID, (I32)lasinventory.max_point_source_ID);
+#else
+      sprintf(note, "file source ID in header is %d but point source IDs of all %lld points range from %d to %d", (I32)lasheader->file_source_ID, (I64)lasinventory.number_of_point_records, (I32)lasinventory.min_point_source_ID, (I32)lasinventory.max_point_source_ID);
 #endif
       lasheader->add_warning("point source ID", note);
     }
