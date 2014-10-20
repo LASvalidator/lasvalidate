@@ -51,6 +51,7 @@ static const int CRS_PROJECTION_TM       = 2;
 static const int CRS_PROJECTION_LONG_LAT = 3;
 static const int CRS_PROJECTION_LAT_LONG = 4;
 static const int CRS_PROJECTION_ECEF     = 5;
+static const int CRS_PROJECTION_NONE     = 6;
 
 #define CRS_ELLIPSOID_NAD27 5
 #define CRS_ELLIPSOID_NAD83 11
@@ -828,6 +829,19 @@ void CRScheck::set_projection(CRSprojectionParameters* projection, const BOOL fr
     if (projections[1]) delete projections[1];
     projections[1] = projection;
   }
+}
+
+BOOL CRScheck::set_no_projection(const BOOL from_geokeys, CHAR* description)
+{
+  CRSprojectionParameters* no = new CRSprojectionParameters();
+  no->type = CRS_PROJECTION_NONE;
+  sprintf(no->name, "explicitly no projection specified");
+  set_projection(no, from_geokeys);
+  if (description)
+  {
+    sprintf(description, "%s", no->name);
+  }
+  return TRUE;
 }
 
 BOOL CRScheck::set_latlong_projection(const BOOL from_geokeys, CHAR* description)
@@ -2975,6 +2989,10 @@ BOOL CRScheck::check_geokeys(LASheader* lasheader, CHAR* description)
       {
         has_projection = set_ecef_projection(TRUE, description);
       }
+      else if (geokey_entries[i].value_offset == 0) // ModelTypeUndefined
+      {
+        has_projection = set_no_projection(TRUE, description);
+      }
       break;
     case 2048: // GeographicTypeGeoKey
       switch (geokey_entries[i].value_offset)
@@ -3399,6 +3417,11 @@ void CRScheck::check(LASheader* lasheader, CHAR* description)
       {
         sprintf(note, "the %u geokeys do not properly specify a Coordinate Reference System", lasheader->geokeys->number_of_keys);
         lasheader->add_fail("CRS", note);
+      }
+      else if ((projections[0]) && (projections[0]->type == CRS_PROJECTION_NONE))
+      {
+        sprintf(note, "the %u geokeys explicitely state that it is not possible to specify a Coordinate Reference System", lasheader->geokeys->number_of_keys);
+        lasheader->add_warning("CRS", note);
       }
     }
     if (lasheader->ogc_wkt)

@@ -124,6 +124,7 @@ private:
   void set_elevation_in_meter(const BOOL from_geokeys);
   BOOL set_ellipsoid(const I32 ellipsoid_id, const BOOL from_geokeys, char* description=0);
   void set_projection(CRSprojectionParameters* projection, const BOOL from_geokeys);
+  BOOL set_no_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_latlong_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_longlat_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_ecef_projection(const BOOL from_geokeys, CHAR* description=0);
