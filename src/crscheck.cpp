@@ -835,7 +835,7 @@ BOOL CRScheck::set_no_projection(const BOOL from_geokeys, CHAR* description)
 {
   CRSprojectionParameters* no = new CRSprojectionParameters();
   no->type = CRS_PROJECTION_NONE;
-  sprintf(no->name, "explicitly no projection specified");
+  sprintf(no->name, "intentionally no projection");
   set_projection(no, from_geokeys);
   if (description)
   {
@@ -3420,7 +3420,7 @@ void CRScheck::check(LASheader* lasheader, CHAR* description)
       }
       else if ((projections[0]) && (projections[0]->type == CRS_PROJECTION_NONE))
       {
-        sprintf(note, "the %u geokeys explicitely state that it is not possible to specify a Coordinate Reference System", lasheader->geokeys->number_of_keys);
+        sprintf(note, "Coordinate Reference System was intentionally not specified (according to the %u geokey%s)", lasheader->geokeys->number_of_keys, (lasheader->geokeys->number_of_keys > 1 ? "s" : ""));
         lasheader->add_warning("CRS", note);
       }
     }
