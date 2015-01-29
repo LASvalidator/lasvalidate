@@ -24,8 +24,9 @@
   
   CHANGE HISTORY:
   
-    3 September 2013 -- made open source after the ASPRS LVS contract fiasko
-    1 April 2013 -- on Easter Monday all-nighting in Perth airport for PER->SYD
+    26 January 2015 -- more useful reports if CRS always missing with '-no_CRS_fail'
+     3 September 2013 -- made open source after the ASPRS LVS contract fiasko
+     1 April 2013 -- on Easter Monday all-nighting in Perth airport for PER->SYD
   
 ===============================================================================
 */
@@ -39,7 +40,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  141020
+#define VALIDATE_VERSION  150126
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
@@ -85,8 +86,8 @@ static void usage(int return_code, BOOL wait=FALSE)
   fprintf(stderr,"lasvalidate -v -i lidar.las -o report.xml\n");
   fprintf(stderr,"lasvalidate -v -i lidar.laz -oxml\n");
   fprintf(stderr,"lasvalidate -vv -i tile1.las tile2.las tile3.las -oxml\n");
-  fprintf(stderr,"lasvalidate -i tile1.laz tile2.laz tile3.laz -o summary.kml\n");
-  fprintf(stderr,"lasvalidate -vv -i *.las\n");
+  fprintf(stderr,"lasvalidate -i tile1.laz tile2.laz tile3.laz -o summary.xml\n");
+  fprintf(stderr,"lasvalidate -i *.las -no_CRS_fail -o report.xml\n");
   fprintf(stderr,"lasvalidate -i *.laz -o summary.xml\n");
   fprintf(stderr,"lasvalidate -i *.las -oxml\n");
   fprintf(stderr,"lasvalidate -i c:\\data\\lidar.las -oxml\n");
@@ -117,6 +118,7 @@ int main(int argc, char *argv[])
   F64 start_time = 0.0;
   F64 full_start_time = 0.0;
   const CHAR* xml_output_file = 0;
+  BOOL no_CRS_fail = FALSE;
   BOOL one_report_per_file = FALSE;
   U32 num_pass = 0;
   U32 num_fail = 0;
@@ -234,6 +236,10 @@ int main(int argc, char *argv[])
     else if (strcmp(argv[i],"-oxml") == 0)
     {
       one_report_per_file = TRUE;
+    }
+    else if (strcmp(argv[i],"-no_CRS_fail") == 0)
+    {
+      no_CRS_fail = TRUE;
     }
     else
     {
@@ -363,7 +369,7 @@ int main(int argc, char *argv[])
 
       // check header and points and get CRS description
 
-      lascheck.check(lasheader, crsdescription);
+      lascheck.check(lasheader, crsdescription, no_CRS_fail);
     }
 
     xmlwriter.write("CRS", crsdescription);

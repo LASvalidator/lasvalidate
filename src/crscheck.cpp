@@ -3405,7 +3405,7 @@ BOOL CRScheck::check_geokeys(LASheader* lasheader, CHAR* description)
   return has_projection;
 }
 
-void CRScheck::check(LASheader* lasheader, CHAR* description)
+void CRScheck::check(LASheader* lasheader, CHAR* description, BOOL no_CRS_fail)
 {
   CHAR note[512];
 
@@ -3416,7 +3416,14 @@ void CRScheck::check(LASheader* lasheader, CHAR* description)
       if (!check_geokeys(lasheader, description))
       {
         sprintf(note, "the %u geokeys do not properly specify a Coordinate Reference System", lasheader->geokeys->number_of_keys);
-        lasheader->add_fail("CRS", note);
+        if (no_CRS_fail)
+        {
+          lasheader->add_warning("CRS", note);
+        }
+        else
+        {
+          lasheader->add_fail("CRS", note);
+        }
       }
       else if ((projections[0]) && (projections[0]->type == CRS_PROJECTION_NONE))
       {
@@ -3433,7 +3440,14 @@ void CRScheck::check(LASheader* lasheader, CHAR* description)
   else
   {
     sprintf(note, "neither GEOTIFF tags nor OGC WKT specify Coordinate Reference System");
-    lasheader->add_fail("CRS", note);
+    if (no_CRS_fail)
+    {
+      lasheader->add_warning("CRS", note);
+    }
+    else
+    {
+      lasheader->add_fail("CRS", note);
+    }
   }
 }
 

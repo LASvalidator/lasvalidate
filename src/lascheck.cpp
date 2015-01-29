@@ -91,7 +91,7 @@ void LAScheck::parse(const LASpoint* laspoint)
   }
 }
 
-void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
+void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fail)
 {
   U32 i,j;
   CHAR note[512];
@@ -1039,7 +1039,14 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     if (lasheader->geokeys == 0)
     {
       sprintf(note, "file does not specify a Coordinate Reference System with GEOTIFF tags");
-      lasheader->add_fail("CRS", note);
+      if (no_CRS_fail)
+      {
+        lasheader->add_warning("CRS", note);
+      }
+      else
+      {
+        lasheader->add_fail("CRS", note);
+      }
     }
   }
   else
@@ -1048,7 +1055,14 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
     if (lasheader->ogc_wkt == 0)
     {
       sprintf(note, "file with point data format %d does not specify Coordinate Reference System with OGC WKT string", lasheader->point_data_format);
-      lasheader->add_fail("CRS", note);
+      if (no_CRS_fail)
+      {
+        lasheader->add_warning("CRS", note);
+      }
+      else
+      {
+        lasheader->add_fail("CRS", note);
+      }
     }
   }
 
@@ -1078,7 +1092,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription)
   if (lasheader->geokeys || lasheader->ogc_wkt)
   {
     CRScheck crscheck;
-    crscheck.check(lasheader, crsdescription);
+    crscheck.check(lasheader, crsdescription, no_CRS_fail);
   }
 }
 

@@ -36,16 +36,16 @@
 #include "laspoint.hpp"
 #include "lasutility.hpp"
 
-#define LASCHECK_VERSION_MAJOR 0
+#define LASCHECK_VERSION_MAJOR 1
 #define LASCHECK_VERSION_MINOR 0
-#define LASCHECK_BUILD_DATE  141020
+#define LASCHECK_BUILD_DATE 150126
 
 class LAScheck
 {
 public:
 
   void parse(const LASpoint* laspoint);
-  void check(LASheader* lasheader, CHAR* crsdescription=0);
+  void check(LASheader* lasheader, CHAR* crsdescription=0, BOOL no_CRS_fail=FALSE);
 
   LAScheck(const LASheader* lasheader);
   ~LAScheck();

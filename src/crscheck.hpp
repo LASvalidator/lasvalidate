@@ -105,7 +105,7 @@ public:
 class CRScheck
 {
 public:
-  void check(LASheader* lasheader, CHAR* description);
+  void check(LASheader* lasheader, CHAR* description=0, BOOL no_CRS_fail=FALSE);
   CRScheck();
   ~CRScheck();
 
