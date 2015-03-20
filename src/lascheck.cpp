@@ -489,6 +489,25 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
     lasheader->add_fail("point data record length", note);
   }
 
+  // check that there is at least one point
+
+  if (lasheader->legacy_number_of_point_records == 0)
+  {
+    if ((lasheader->version_major == 1) && (lasheader->version_minor >= 4))
+    {
+      if (lasheader->number_of_point_records == 0)
+      {
+        sprintf(note, "files must contain at least one point record to be considered valid");
+        lasheader->add_fail("zero points in file", note);
+      }
+    }
+    else
+    {
+      sprintf(note, "files must contain at least one point record to be considered valid");
+      lasheader->add_fail("zero points in file", note);
+    }
+  }
+
   // check integraty between legacy number of point records and number of point records for LAS 1.4 and higher
 
   if ((lasheader->version_major == 1) && (lasheader->version_minor >= 4))

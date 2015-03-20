@@ -24,6 +24,7 @@
   
   CHANGE HISTORY:
   
+    20 March 2015 -- fail on files containing zero point records
     26 January 2015 -- more useful reports if CRS always missing with '-no_CRS_fail'
      3 September 2013 -- made open source after the ASPRS LVS contract fiasko
      1 April 2013 -- on Easter Monday all-nighting in Perth airport for PER->SYD
