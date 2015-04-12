@@ -24,6 +24,7 @@
   
   CHANGE HISTORY:
   
+    12 April 2015 -- not failing but warning for certain empty VLR payloads 
     20 March 2015 -- fail on files containing zero point records
     26 January 2015 -- more useful reports if CRS always missing with '-no_CRS_fail'
      3 September 2013 -- made open source after the ASPRS LVS contract fiasko
@@ -41,7 +42,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  150126
+#define VALIDATE_VERSION  150412
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
