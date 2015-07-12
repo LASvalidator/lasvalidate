@@ -14,7 +14,7 @@
   
   COPYRIGHT:
   
-    (c) 2007-2014, martin isenburg, rapidlasso - tools to catch reality
+    (c) 2007-2015, martin isenburg, rapidlasso - tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -25,6 +25,7 @@
   
   CHANGE HISTORY:
   
+    8 July 2015 -- look-up name of unknown ESPG codes in list by Loren Dawe
     3 July 2014 -- allowing unknown ESPG codes to pass CRS check with warning
     8 September 2013 -- it started raining on the beach after TREEMAPS meeting
   
