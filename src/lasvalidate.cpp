@@ -24,6 +24,7 @@
   
   CHANGE HISTORY:
   
+     2 August 2015 -- not failing but warning if OCG WRT has intentional empty payload 
     12 April 2015 -- not failing but warning for certain empty VLR payloads 
     20 March 2015 -- fail on files containing zero point records
     26 January 2015 -- more useful reports if CRS always missing with '-no_CRS_fail'

@@ -13,7 +13,7 @@
   
   COPYRIGHT:
   
-    (c) 2013, martin isenburg, rapidlasso - fast tools to catch reality
+    (c) 2013-2015, martin isenburg, rapidlasso - fast tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -14504,14 +14504,52 @@ void CRScheck::check(LASheader* lasheader, CHAR* description, BOOL no_CRS_fail)
       }
       else if ((projections[0]) && (projections[0]->type == CRS_PROJECTION_NONE))
       {
-        sprintf(note, "Coordinate Reference System was intentionally not specified (according to the %u geokey%s)", lasheader->geokeys->number_of_keys, (lasheader->geokeys->number_of_keys > 1 ? "s" : ""));
-        lasheader->add_warning("CRS", note);
+        if ((lasheader->ogc_wkt) && (lasheader->ogc_wkt != lasheader->file_signature))
+        {
+          sprintf(note, "inconsistency. the %u geokeys tags claim CRS is intentionally *not* specified but non-empty OGC WKT seems to specify it", lasheader->geokeys->number_of_keys);
+          if (no_CRS_fail)
+          {
+            lasheader->add_warning("CRS", note);
+          }
+          else
+          {
+            lasheader->add_fail("CRS", note);
+          }
+        }
+        else
+        {
+          sprintf(note, "Coordinate Reference System was intentionally not specified (according to the %u geokey%s)", lasheader->geokeys->number_of_keys, (lasheader->geokeys->number_of_keys > 1 ? "s" : ""));
+          lasheader->add_warning("CRS", note);
+        }
       }
     }
     if (lasheader->ogc_wkt)
     {
-      sprintf(note, "there is a OGC WKT string but its check is not yet implemented");
-      lasheader->add_warning("CRS", note);
+      if (lasheader->ogc_wkt == lasheader->file_signature)
+      {
+        if ((projections[0]) && (projections[0]->type != CRS_PROJECTION_NONE))
+        {
+          sprintf(note, "inconsistency. GEOTIFF tags specify CRS but OGC WKT claims it's intentionally *not* specified");
+          if (no_CRS_fail)
+          {
+            lasheader->add_warning("CRS", note);
+          }
+          else
+          {
+            lasheader->add_fail("CRS", note);
+          }
+        }
+        else
+        {
+          sprintf(note, "Coordinate Reference System was intentionally not specified (according to the empty OGC WKT)");
+          lasheader->add_warning("CRS", note);
+        }
+      }
+      else
+      {
+        sprintf(note, "there is a OGC WKT string but its check is not yet implemented");
+        lasheader->add_warning("CRS", note);
+      }
     }
   }
   else
