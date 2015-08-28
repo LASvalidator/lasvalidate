@@ -94,6 +94,7 @@ void LAScheck::parse(const LASpoint* laspoint)
 void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fail)
 {
   U32 i,j;
+  CHAR problem[512];
   CHAR note[512];
 
   // check file signature
@@ -530,10 +531,17 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
     {
       if (lasheader->legacy_number_of_points_by_return[i] != 0)
       {
-        if (lasheader->legacy_number_of_points_by_return[i] != U32_CLAMP(lasheader->number_of_points_by_return[i]))
+        if (lasheader->number_of_points_by_return[i] == 0)
         {
-          sprintf(note, "should be consistent with number of point by return and either be 0 or %u and not %u", U32_CLAMP(lasheader->number_of_points_by_return[i]), lasheader->legacy_number_of_points_by_return[i]);
-          lasheader->add_fail("legacy number of point by return", note);
+          sprintf(problem, "number of points by return[%d]", i);
+          sprintf(note, "is zero but should be identical to the (non-zero) legacy number of points by return of %u", lasheader->legacy_number_of_points_by_return[i]);
+          lasheader->add_fail(problem, note);
+        }
+        else if (lasheader->legacy_number_of_points_by_return[i] != U32_CLAMP(lasheader->number_of_points_by_return[i]))
+        {
+          sprintf(problem, "legacy number of points by return[%d]", i);
+          sprintf(note, "should be consistent with number of points by return and either be 0 or %u and not %u", U32_CLAMP(lasheader->number_of_points_by_return[i]), lasheader->legacy_number_of_points_by_return[i]);
+          lasheader->add_fail(problem, note);
         }
       }
     }
@@ -565,7 +573,7 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
     }
   }
 
-  // check number of point by return in header against the counted inventory
+  // check number of points by return in header against the counted inventory
 
   if (lasinventory.is_active())
   {
@@ -575,12 +583,13 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
       {
         if (lasheader->number_of_points_by_return[i] != lasinventory.number_of_points_by_return[i+1])
         {
+          sprintf(problem, "number of points by return[%d]", i);
 #ifdef _WIN32
-          sprintf(note, "the number of %2d%s return(s) is %I64d and not %I64d", i+1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), (I64)lasinventory.number_of_points_by_return[i+1], (I64)lasheader->number_of_points_by_return[i]);
+          sprintf(note, "the number of %2d%s returns is %I64d and not %I64d", i+1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), (I64)lasinventory.number_of_points_by_return[i+1], (I64)lasheader->number_of_points_by_return[i]);
 #else
-          sprintf(note, "the number of %d%s return(s) is %lld and not %lld", i+1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), (I64)lasinventory.number_of_points_by_return[i+1], (I64)lasheader->number_of_points_by_return[i]);
+          sprintf(note, "the number of %d%s returns is %lld and not %lld", i+1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), (I64)lasinventory.number_of_points_by_return[i+1], (I64)lasheader->number_of_points_by_return[i]);
 #endif
-          lasheader->add_fail("number of point by return", note);
+          lasheader->add_fail(problem, note);
         }
       }
     }
@@ -590,8 +599,9 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
       {
         if (lasheader->legacy_number_of_points_by_return[i] != U32_CLAMP(lasinventory.number_of_points_by_return[i+1]))
         {
-          sprintf(note, "the number of %d%s return(s) is %u and not %u", i+1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), U32_CLAMP(lasinventory.number_of_points_by_return[i+1]), lasheader->legacy_number_of_points_by_return[i]);
-          lasheader->add_fail("number of point by return", note);
+          sprintf(problem, "number of points by return[%d]", i);
+          sprintf(note, "the number of %d%s returns is %u and not %u", i+1, (i == 0 ? "st" : (i == 1 ? "nd" : (i == 2 ? "rd" : "th"))), U32_CLAMP(lasinventory.number_of_points_by_return[i+1]), lasheader->legacy_number_of_points_by_return[i]);
+          lasheader->add_fail(problem, note);
         }
       }
     }
