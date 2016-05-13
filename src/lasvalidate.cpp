@@ -13,7 +13,7 @@
   
   COPYRIGHT:
   
-    (c) 2013, martin isenburg, rapidlasso - fast tools to catch reality
+    (c) 2007-2016, martin isenburg, rapidlasso - fast tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -43,7 +43,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  160119
+#define VALIDATE_VERSION  160512
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001

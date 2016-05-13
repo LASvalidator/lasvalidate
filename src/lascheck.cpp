@@ -13,7 +13,7 @@
   
   COPYRIGHT:
   
-    (c) 2014, martin isenburg, rapidlasso - fast tools to catch reality
+    (c) 2007-2016, martin isenburg, rapidlasso - fast tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -492,20 +492,61 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
 
   // check that there is at least one point
 
-  if (lasheader->legacy_number_of_point_records == 0)
+  if ((lasheader->version_major == 1) && (lasheader->version_minor < 4))
   {
-    if ((lasheader->version_major == 1) && (lasheader->version_minor >= 4))
-    {
-      if (lasheader->number_of_point_records == 0)
-      {
-        sprintf(note, "files must contain at least one point record to be considered valid");
-        lasheader->add_fail("zero points in file", note);
-      }
-    }
-    else
+    if (lasheader->legacy_number_of_point_records == 0)
     {
       sprintf(note, "files must contain at least one point record to be considered valid");
       lasheader->add_fail("zero points in file", note);
+    }
+  }
+  else
+  {
+    if (lasheader->number_of_point_records == 0)
+    {
+      sprintf(note, "files must contain at least one point record to be considered valid");
+      lasheader->add_fail("zero points in file", note);
+    }
+  }
+
+  // check that number of points by return is less than or equal to number of point records
+  
+  I64 total = 0;
+
+  if ((lasheader->version_major == 1) && (lasheader->version_minor < 4))
+  {
+    for (i = 0; i < 5; i++)
+    {
+      if (lasheader->legacy_number_of_points_by_return[i] > lasheader->legacy_number_of_point_records)
+      {
+        sprintf(problem, "legacy number of points by return[%d]", i);
+        sprintf(note, "should not be larger than number of point records");
+        lasheader->add_fail(problem, note);
+      }
+      total += lasheader->legacy_number_of_points_by_return[i];
+    }
+    if (total > lasheader->legacy_number_of_point_records)
+    {
+      sprintf(note, "sum should not be larger than number of point records");
+      lasheader->add_fail("legacy number of points by return [] array", note);
+    }
+  }
+  else
+  {
+    for (i = 0; i < 15; i++)
+    {
+      if (lasheader->number_of_points_by_return[i] > lasheader->number_of_point_records)
+      {
+        sprintf(problem, "number of points by return[%d]", i);
+        sprintf(note, "should not be larger than number of point records");
+        lasheader->add_fail(problem, note);
+      }
+      total += lasheader->number_of_points_by_return[i];
+    }
+    if (total > lasheader->number_of_point_records)
+    {
+      sprintf(note, "sum should not be larger than number of point records");
+      lasheader->add_fail("number of points by return [] array", note);
     }
   }
 
@@ -513,11 +554,37 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
 
   if ((lasheader->version_major == 1) && (lasheader->version_minor >= 4))
   {
-    if (lasheader->legacy_number_of_point_records != 0)
+    if (lasheader->point_data_format <= 5)
     {
-      if (lasheader->legacy_number_of_point_records != U32_CLAMP(lasheader->number_of_point_records))
+      if (lasheader->legacy_number_of_point_records == 0)
       {
-        sprintf(note, "should be consistent with number of point records and either be 0 or %u and not %u", U32_CLAMP(lasheader->number_of_point_records), lasheader->legacy_number_of_point_records);
+        if ((lasheader->number_of_point_records > 0) && (lasheader->number_of_point_records <= U32_MAX))
+        {
+          sprintf(note, "unnecessary lack of forward compatibility. should be %u as this LAS 1.%d file contains less than %u points of type %d", (U32)(lasheader->number_of_point_records), lasheader->version_minor, U32_MAX, lasheader->point_data_format);
+          lasheader->add_warning("legacy number of point records", note);
+        }
+      }
+      else
+      {
+        if (lasheader->number_of_point_records != lasheader->legacy_number_of_point_records)
+        {
+          if (lasheader->number_of_point_records <= U32_MAX)
+          {
+            sprintf(note, "should be %u to be consistent with number of point records instead of %u", (U32)(lasheader->number_of_point_records), lasheader->legacy_number_of_point_records);
+          }
+          else
+          {
+            sprintf(note, "should be 0 for LAS 1.%d files that contain over %u points of type %d", lasheader->version_minor, U32_MAX, lasheader->point_data_format);
+          }
+          lasheader->add_fail("legacy number of point records", note);
+        }
+      }
+    }
+    else
+    {
+      if (lasheader->legacy_number_of_point_records != 0)
+      {
+        sprintf(note, "should be 0 for LAS 1.%d files that contain point type %d", lasheader->version_minor, lasheader->point_data_format);
         lasheader->add_fail("legacy number of point records", note);
       }
     }
@@ -529,18 +596,40 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
   {
     for (i = 0; i < 5; i++)
     {
-      if (lasheader->legacy_number_of_points_by_return[i] != 0)
+      if (lasheader->point_data_format <= 5)
       {
-        if (lasheader->number_of_points_by_return[i] == 0)
+        if (lasheader->legacy_number_of_points_by_return[i] == 0)
         {
-          sprintf(problem, "number of points by return[%d]", i);
-          sprintf(note, "is zero but should be identical to the (non-zero) legacy number of points by return of %u", lasheader->legacy_number_of_points_by_return[i]);
-          lasheader->add_fail(problem, note);
+          if ((lasheader->legacy_number_of_points_by_return[i] > 0) && (lasheader->number_of_point_records <= U32_MAX))
+          {
+            sprintf(problem, "legacy number of points by return[%d]", i);
+            sprintf(note, "unnecessary lack of forward compatibility. should be %u as this LAS 1.%d file contains less than %u points of type %d", (U32)(lasheader->legacy_number_of_points_by_return[i]), lasheader->version_minor, U32_MAX, lasheader->point_data_format);
+            lasheader->add_warning(problem, note);
+          }
         }
-        else if (lasheader->legacy_number_of_points_by_return[i] != U32_CLAMP(lasheader->number_of_points_by_return[i]))
+        else
+        {
+          if (lasheader->number_of_points_by_return[i] != lasheader->legacy_number_of_points_by_return[i])
+          {
+            if (lasheader->number_of_point_records <= U32_MAX)
+            {
+              sprintf(note, "should be %u to be consistent with number of points by return instead of %u", (U32)(lasheader->number_of_points_by_return[i]), lasheader->legacy_number_of_points_by_return[i]);
+            }
+            else
+            {
+              sprintf(note, "should be 0 for LAS 1.%d files that contain over %u points of type %d", lasheader->version_minor, U32_MAX, lasheader->point_data_format);
+            }
+            sprintf(problem, "legacy number of points by return[%d]", i);
+            lasheader->add_fail(problem, note);
+          }
+        }
+      }
+      else
+      {
+        if (lasheader->legacy_number_of_points_by_return[i] != 0)
         {
           sprintf(problem, "legacy number of points by return[%d]", i);
-          sprintf(note, "should be consistent with number of points by return and either be 0 or %u and not %u", U32_CLAMP(lasheader->number_of_points_by_return[i]), lasheader->legacy_number_of_points_by_return[i]);
+          sprintf(note, "should be 0 for LAS 1.%d files that contain point type %d", lasheader->version_minor, lasheader->point_data_format);
           lasheader->add_fail(problem, note);
         }
       }
