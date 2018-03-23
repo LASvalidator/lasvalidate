@@ -16,7 +16,7 @@
     <details>
       <fail>
         <variable>file creation year</variable>
-        <note>should be between 1990 and 2013 and not 1</note>
+        <note>should be between 1990 and 2018 and not 1</note>
       </fail>
       <warning>
         <variable>system identifier</variable>
@@ -33,7 +33,7 @@
     </details>
   </total>
   <version>
-    130928 built with LASread version 1.0 (130927)
+    170323 built with LASread version 1.1 (170323)
   </version>
   <command_line>
     lasvalidate -i ..\data\*.las -oxml 

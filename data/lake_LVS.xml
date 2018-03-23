@@ -33,7 +33,7 @@
     </details>
   </total>
   <version>
-    130928 built with LASread version 1.0 (130927)
+    170323 built with LASread version 1.1 (170323)
   </version>
   <command_line>
     lasvalidate -i ..\data\*.las -oxml 
