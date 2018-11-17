@@ -2,18 +2,18 @@
 ===============================================================================
 
   FILE:  crscheck.hpp
-  
+
   CONTENTS:
-  
+
     Functions to validate whether the GEOTIFF tags specify a valid geo-coding
     and (someday) whether they are in agreement to the OGC WKT string.
-  
+
   PROGRAMMERS:
 
     martin.isenburg@rapidlasso.com  -  http://rapidlasso.com
-  
+
   COPYRIGHT:
-  
+
     (c) 2007-2015, martin isenburg, rapidlasso - tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
@@ -22,13 +22,13 @@
 
     This software is distributed WITHOUT ANY WARRANTY and without even the
     implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  
+
   CHANGE HISTORY:
-  
+
     8 July 2015 -- look-up name of unknown ESPG codes in list by Loren Dawe
     3 July 2014 -- allowing unknown ESPG codes to pass CRS check with warning
     8 September 2013 -- it started raining on the beach after TREEMAPS meeting
-  
+
 ===============================================================================
 */
 #ifndef CRS_CHECK_HPP
@@ -130,8 +130,8 @@ private:
   BOOL set_longlat_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_ecef_projection(const BOOL from_geokeys, CHAR* description=0);
   BOOL set_utm_projection(const CHAR* zone, const BOOL from_geokeys, CHAR* description=0);
-  BOOL set_utm_projection(const I32 zone, const BOOL northern, const const BOOL from_geokeys, CHAR* description=0);
-  BOOL set_mga_projection(const I32 zone, const BOOL northern, const const BOOL from_geokeys, CHAR* description=0);
+  BOOL set_utm_projection(const I32 zone, const BOOL northern, const BOOL from_geokeys, CHAR* description=0);
+  BOOL set_mga_projection(const I32 zone, const BOOL northern, const BOOL from_geokeys, CHAR* description=0);
   void set_lambert_conformal_conic_projection(const F64 falseEasting, const F64 falseNorthing, const F64 latOriginDegree, const F64 longMeridianDegree, const F64 firstStdParallelDegree, const F64 secondStdParallelDegree, const BOOL from_geokeys, CHAR* description=0);
   void set_transverse_mercator_projection(const F64 falseEasting, const F64 falseNorthing, const F64 latOriginDegree, const F64 longMeridianDegree, const F64 scaleFactor, const BOOL from_geokeys, CHAR* description=0);
   BOOL set_state_plane_nad27_lcc(const CHAR* zone, const BOOL from_geokeys, CHAR* description=0);
