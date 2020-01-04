@@ -13,7 +13,7 @@
   
   COPYRIGHT:
   
-    (c) 2007-2016, martin isenburg, rapidlasso - fast tools to catch reality
+    (c) 2007-2020, martin isenburg, rapidlasso - fast tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -91,7 +91,7 @@ void LAScheck::parse(const LASpoint* laspoint)
   }
 }
 
-void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fail)
+void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fail, F64 tile_size)
 {
   U32 i,j;
   CHAR problem[512];
@@ -634,6 +634,24 @@ void LAScheck::check(LASheader* lasheader, CHAR* crsdescription, BOOL no_CRS_fai
         }
       }
     }
+  }
+
+  // if tile size was given check that header bounding box agrees with tile size
+
+  if (tile_size)
+  {
+    if ((lasheader->max_x - lasheader->min_x) > tile_size)
+    {
+      sprintf(problem, "header bounding box exceeds tile size in x");
+      sprintf(note, "max_x - min_x is %g and exceeds %g ", (lasheader->max_x - lasheader->min_x), tile_size);
+      lasheader->add_fail(problem, note);
+    }
+    if ((lasheader->max_y - lasheader->min_y) > tile_size)
+    {
+      sprintf(problem, "header bounding box exceeds tile size in y");
+      sprintf(note, "max_y - min_y is %g and exceeds %g ", (lasheader->max_y - lasheader->min_y), tile_size);
+      lasheader->add_fail(problem, note);
+    }  
   }
 
   // check number of point records in header against the counted inventory

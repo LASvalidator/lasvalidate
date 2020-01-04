@@ -43,7 +43,7 @@
 #include "xmlwriter.hpp"
 #include "lascheck.hpp"
 
-#define VALIDATE_VERSION  170323
+#define VALIDATE_VERSION  200104
 
 #define VALIDATE_PASS     0x0000
 #define VALIDATE_FAIL     0x0001
@@ -85,13 +85,14 @@ static void usage(int return_code, BOOL wait=FALSE)
 {
   fprintf(stderr,"Usage:\n");
   fprintf(stderr,"lasvalidate -i lidar.las\n");
-  fprintf(stderr,"lasvalidate -i lidar.laz\n");
+  fprintf(stderr,"lasvalidate -i lidar.laz -no_CRS_fail\n");
   fprintf(stderr,"lasvalidate -v -i lidar.las -o report.xml\n");
   fprintf(stderr,"lasvalidate -v -i lidar.laz -oxml\n");
   fprintf(stderr,"lasvalidate -vv -i tile1.las tile2.las tile3.las -oxml\n");
   fprintf(stderr,"lasvalidate -i tile1.laz tile2.laz tile3.laz -o summary.xml\n");
   fprintf(stderr,"lasvalidate -i *.las -no_CRS_fail -o report.xml\n");
   fprintf(stderr,"lasvalidate -i *.laz -o summary.xml\n");
+  fprintf(stderr,"lasvalidate -i *.laz -tile_size 1000 -o summary.xml\n");
   fprintf(stderr,"lasvalidate -i *.las -oxml\n");
   fprintf(stderr,"lasvalidate -i c:\\data\\lidar.las -oxml\n");
   fprintf(stderr,"lasvalidate -i ..\\subfolder\\*.las -o summary.xml\n");
@@ -122,6 +123,7 @@ int main(int argc, char *argv[])
   F64 full_start_time = 0.0;
   const CHAR* xml_output_file = 0;
   BOOL no_CRS_fail = FALSE;
+  F64 tile_size = 0.0;
   BOOL one_report_per_file = FALSE;
   U32 num_pass = 0;
   U32 num_fail = 0;
@@ -243,6 +245,16 @@ int main(int argc, char *argv[])
     else if (strcmp(argv[i],"-no_CRS_fail") == 0)
     {
       no_CRS_fail = TRUE;
+    }
+    else if (strcmp(argv[i],"-tile_size") == 0)
+    {
+      if ((i+1) >= argc)
+      {
+        fprintf(stderr,"ERROR: '%s' needs at least 1 argument: tile size\n", argv[i]);
+        usage(LAS_VALIDATE_WRONG_COMMAND_LINE_SYNTAX);
+      }
+      i++;
+      tile_size = atof(argv[i]);
     }
     else
     {

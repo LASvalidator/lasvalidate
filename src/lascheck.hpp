@@ -14,7 +14,7 @@
   
   COPYRIGHT:
   
-    (c) 2007-2016, martin isenburg, rapidlasso - fast tools to catch reality
+    (c) 2007-2020, martin isenburg, rapidlasso - fast tools to catch reality
 
     This is free software; you can redistribute and/or modify it under the
     terms of the GNU Lesser General Licence as published by the Free Software
@@ -25,7 +25,8 @@
   
   CHANGE HISTORY:
   
-    1 April 2013 -- on Easter Monday all-nighting in Perth airport for PER->SYD
+     4 January 2020 -- optional check for heaber bounding box matching tile size
+     1 April 2013 -- on Easter Monday all-nighting in Perth airport for PER->SYD
   
 ===============================================================================
 */
@@ -37,15 +38,15 @@
 #include "lasutility.hpp"
 
 #define LASCHECK_VERSION_MAJOR 1
-#define LASCHECK_VERSION_MINOR 0
-#define LASCHECK_BUILD_DATE 150126
+#define LASCHECK_VERSION_MINOR 1
+#define LASCHECK_BUILD_DATE 200104
 
 class LAScheck
 {
 public:
 
   void parse(const LASpoint* laspoint);
-  void check(LASheader* lasheader, CHAR* crsdescription=0, BOOL no_CRS_fail=FALSE);
+  void check(LASheader* lasheader, CHAR* crsdescription=0, BOOL no_CRS_fail=FALSE, F64 tile_size=0.0);
 
   LAScheck(const LASheader* lasheader);
   ~LAScheck();
