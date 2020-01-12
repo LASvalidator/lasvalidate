@@ -39,6 +39,10 @@
     </summary>
     <details>
       <fail>
+        <variable>bounding box</variable>
+        <note>there are 1003 points outside of the bounding box specified in the LAS file header</note>
+      </fail>
+      <fail>
         <variable>min x</variable>
         <note>should be 309240.00 and not 309240.15</note>
       </fail>
@@ -195,20 +199,20 @@
     </summary>
     <details>
       <fail>
-        <variable>number of point by return</variable>
-        <note>the number of 1st return(s) is 4405 and not 4400</note>
+        <variable>number of points by return[0]</variable>
+        <note>the number of 1st returns is 4405 and not 4400</note>
       </fail>
       <fail>
-        <variable>number of point by return</variable>
-        <note>the number of 3rd return(s) is 1031 and not 1030</note>
+        <variable>number of points by return[2]</variable>
+        <note>the number of 3rd returns is 1031 and not 1030</note>
       </fail>
       <fail>
-        <variable>number of point by return</variable>
-        <note>the number of 4th return(s) is 201 and not 200</note>
+        <variable>number of points by return[3]</variable>
+        <note>the number of 4th returns is 201 and not 200</note>
       </fail>
       <fail>
-        <variable>number of point by return</variable>
-        <note>the number of 5th return(s) is 26 and not 30</note>
+        <variable>number of points by return[4]</variable>
+        <note>the number of 5th returns is 26 and not 30</note>
       </fail>
       <warning>
         <variable>return number</variable>
@@ -303,15 +307,15 @@
     <details>
       <warning>
         <variable>x scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 0.003333</note>
+        <note>should be factor ten of 0.1 or 0.5 or 0.25 and not 0.003333</note>
       </warning>
       <warning>
         <variable>y scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 0.0123457</note>
+        <note>should be factor ten of 0.1 or 0.5 or 0.25 and not 0.0123456789</note>
       </warning>
       <warning>
         <variable>z scale factor</variable>
-        <note>should be factor ten of 0.1 or 0.25 and not 0.00987654</note>
+        <note>should be factor ten of 0.1 or 0.5 or 0.25 and not 0.00987654321</note>
       </warning>
       <warning>
         <variable>return number</variable>
@@ -331,4 +335,10 @@
       <fail>8</fail>
     </details>
   </total>
+  <version>
+    200104 built with LASread version 1.1 (200104)
+  </version>
+  <command_line>
+    lasvalidate -i ..\unit\*.las -o ..\unit\validate.xml 
+  </command_line>
 </LASvalidator>
